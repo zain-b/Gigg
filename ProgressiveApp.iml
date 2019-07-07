@@ -8,5 +8,23 @@
     <orderEntry type="library" name="@types/passport" level="application" />
     <orderEntry type="library" name="@types/mongoose" level="application" />
     <orderEntry type="library" name="@types/mongodb" level="application" />
+    <orderEntry type="module-library">
+      <library name="PHP Runtime">
+        <CLASSES>
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="@types/angular" level="application" />
+    <orderEntry type="library" name="@types/express" level="application" />
+    <orderEntry type="library" name="@types/mongoose" level="application" />
+    <orderEntry type="library" name="@types/passport" level="application" />
+    <orderEntry type="library" name="@types/passport-jwt" level="application" />
+    <orderEntry type="library" name="@types/node" level="application" />
+    <orderEntry type="library" name="@types/bcrypt" level="application" />
   </component>
 </module>

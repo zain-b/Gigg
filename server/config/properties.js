@@ -1,3 +1,5 @@
+
 module.exports = {
-    Database: 'mongodb://localhost:27017/gigg_db'
+    secret: 'giggsecret',
+    database: 'mongodb://localhost:27017/gigg_db'
 };

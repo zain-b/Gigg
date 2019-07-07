@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var properties = require('./properties');
 
-var mongoDB = properties.Database;
+var mongoDB = properties.database;
 
 module.exports = {
   connect: function() {

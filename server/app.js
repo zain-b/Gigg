@@ -8,12 +8,21 @@ var bodyParser = require('body-parser');
 var database = require('./config/database');
 var apiRouter = require('./api/api.router');
 
+var passport = require('passport');
+var passportConfig = require('./config/passport');
+
 var app = express();
 
 /**
  * Connect to database.
  */
 database.connect();
+
+/**
+ * Passport setup.
+ */
+app.use(passport.initialize());
+passportConfig.configure(passport);
 
 /**
  * View engine setup.

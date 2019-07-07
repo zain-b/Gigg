@@ -3,6 +3,16 @@ var router = express.Router();
 var usersController = require('./users.controller');
 
 /**
+ * POST /register
+ */
+router.post('/register', usersController.register);
+
+/**
+ * POST /login
+ */
+router.post('/login', usersController.login);
+
+/**
  * GET
  */
 router.get('/', usersController.list);
@@ -11,11 +21,6 @@ router.get('/', usersController.list);
  * GET
  */
 router.get('/:id', usersController.show);
-
-/**
- * POST
- */
-router.post('/', usersController.create);
 
 /**
  * PUT

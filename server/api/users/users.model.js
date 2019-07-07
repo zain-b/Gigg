@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
 var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt');
+var properties = require('../../config/properties');
+var jwt = require('jsonwebtoken');
+
 var SALT_WORK_FACTOR = 10;
 
 var User = new Schema({
@@ -54,6 +57,21 @@ User.methods.comparePassword = function(candidatePassword, callback) {
         if (err) return callback(err);
         callback(null, isMatch);
     });
+};
+
+User.methods.generateJSONWebToken = function() {
+    var expiry = new Date();
+    expiry.setDate(expiry.getDate() + properties.loginExpiry);
+
+    var tokenData = {
+        _id: this._id,
+        username: this.username,
+        email: this.email,
+        exp: parseInt(expiry.getTime() / 1000),
+    };
+
+    // Encrypt user data with secret key
+    return jwt.sign(tokenData, properties.secret);
 };
 
 module.exports = mongoose.model('User', User);

@@ -4,10 +4,8 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="@types/express" level="application" />
     <orderEntry type="library" name="@types/passport" level="application" />
     <orderEntry type="library" name="@types/mongoose" level="application" />
-    <orderEntry type="library" name="@types/mongodb" level="application" />
     <orderEntry type="module-library">
       <library name="PHP Runtime">
         <CLASSES>
@@ -20,11 +18,15 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="@types/angular" level="application" />
-    <orderEntry type="library" name="@types/express" level="application" />
     <orderEntry type="library" name="@types/mongoose" level="application" />
     <orderEntry type="library" name="@types/passport" level="application" />
     <orderEntry type="library" name="@types/passport-jwt" level="application" />
     <orderEntry type="library" name="@types/node" level="application" />
     <orderEntry type="library" name="@types/bcrypt" level="application" />
+    <orderEntry type="library" name="@types/mongodb" level="application" />
+    <orderEntry type="library" name="@types/passport-jwt" level="application" />
+    <orderEntry type="library" name="@types/angular" level="application" />
+    <orderEntry type="library" name="@types/bcrypt" level="application" />
+    <orderEntry type="library" name="@types/express" level="application" />
   </component>
 </module>

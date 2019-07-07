@@ -1,4 +1,5 @@
 var PassportJWT = require('passport-jwt');
+
 var JwtStrategy = PassportJWT.Strategy;
 var ExtractJwt = PassportJWT.ExtractJwt;
 
@@ -13,7 +14,6 @@ var properties = require('./properties');
  * See: http://www.passportjs.org/packages/passport-jwt/
  * @param passport
  */
-
 module.exports = {
     configure: function(passport) {
         var options = {};

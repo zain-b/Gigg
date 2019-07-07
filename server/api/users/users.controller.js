@@ -1,7 +1,5 @@
 var debug = require('debug')('progressiveapp:server');
 var User = require('./users.model');
-var properties = require('../../config/properties');
-var jwt = require('jsonwebtoken');
 
 /**
  * users.controller.js
@@ -60,11 +58,16 @@ module.exports = {
             user.comparePassword(req.body.password, function (err, isMatch) {
                 if (isMatch && !err) {
                     // if user is found and password is right create a token
-                    var token = jwt.sign(user.toJSON(), properties.secret);
+                    var token = user.generateJSONWebToken();
+
                     // return the information including token as JSON
                     return res.status(200).json({
                         success: true,
-                        token: 'JWT ' + token
+                        user: {
+                            username: user.username,
+                            email   : user.email,
+                            token: 'JWT ' + token
+                        }
                     });
                 }
 

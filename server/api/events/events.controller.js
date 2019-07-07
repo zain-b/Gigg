@@ -54,6 +54,7 @@ module.exports = {
         event.save(function(err, event){
             if(err) {
                 return res.status(500).json({
+                    user: req.user,
                     message: 'Error saving event',
                     error: err
                 });

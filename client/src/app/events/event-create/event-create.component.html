@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col">
+
+    <form #createEventForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="createEventTitle">Title</label>
+        <input type="text" [(ngModel)]="event.title" name="title" class="form-control" id="createEventTitle"
+               aria-describedby="titleHelp" placeholder="Enter title">
+        <small id="titleHelp" class="form-text text-muted">Enter a descriptive title for your event.</small>
+      </div>
+      <div class="form-group">
+        <label>Location address</label>
+        <div class="map"
+             leaflet
+             [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)">
+        </div>
+
+        <small id="locationHelp" class="form-text text-muted">Where is your event being held?</small>
+      </div>
+      <div class="form-group">
+        <label for="createEventDate">Date</label>
+        <input type="date" [(ngModel)]="event.date" name="date" class="form-control" id="createEventDate"
+               aria-describedby="dateHelp" placeholder="Date">
+        <small id="dateHelp" class="form-text text-muted">When is it?</small>
+      </div>
+      <div class="photo-upload form-group form-control">
+        <label class="control-label">Main Event Photo</label>
+        <input (change)="filesAdded($event)" required type="file" class="photo-upload-input">
+      </div>
+
+      <button type="submit" [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Create event
+      </button>
+    </form>
+  </div>
+</div>
+

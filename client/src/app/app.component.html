@@ -1,21 +1,47 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header>
+    <nav class="navbar lighter navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gigg</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<router-outlet></router-outlet>
+            <div class="navbar-collapse collapse" id="navbarColor02" style="">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/stories" routerLinkActive="active">Stories</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+                  </li>
+                </ul>
+                <div *ngIf="(user$ | async);then logged_in else logged_out"></div>
+                <ng-template #logged_in>
+                    <div>
+                        <img class="user-photo mr-1 rounded-circle" src="/uploads/{{(user$ | async).photo}}" alt="">
+                        <a class="logged-in-username" href="#">{{(user$ | async).username}}</a>
+                        <a class="logged-in-logout ml-1" (click)="logout()" routerLink='/'>logout?</a>
+                    </div>
+                </ng-template>
+                <ng-template #logged_out>
+                    <a class="btn btn-outline-light lighter mx-1 my-2" routerLink='/login'>Log in</a>
+                    <a class="btn btn-outline-light lighter my-2" routerLink='/register'>Register</a>
+                </ng-template>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container mt-4">
+    <flash-messages></flash-messages>
+    <main [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+        <router-outlet #outlet="outlet"></router-outlet>
+    </main>
+</div>

@@ -1,0 +1,24 @@
+<div class="card-group text-center">
+    <div *ngFor="let story of (stories ? stories.slice(0,storiesToShow): [])" class="card">
+        <div class="card-header lighter">
+            <div>
+                <img class="story-user-photo mr-3 rounded-circle" src="/uploads/{{story.creator.photo}}" alt="">
+            </div>
+            <div>
+                <a class="font-weight-bold" href="#">{{story.creator.username}}</a> posted a story about
+                <a class="font-weight-bold" routerLink="/events/{{story.event._id}}">{{story.event.title}}</a>
+                <small class="d-block text-muted mt-2">{{ story.createdAt | timeAgo}}</small>
+            </div>
+
+        </div>
+        <img class="card-img-top" src="/uploads/{{story.photos[0]}}" alt="Card image cap">
+
+        <div class="card-body">
+            <h5 class="card-title"><a routerLink="/stories/{{story._id}}">{{story.title}}</a></h5>
+            <p class="card-text">{{ trimText(story.text, 150)}}...</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Story posted {{ story.createdAt | timeAgo}}</small>
+        </div>
+    </div>
+</div>

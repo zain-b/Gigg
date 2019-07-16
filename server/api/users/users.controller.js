@@ -12,17 +12,18 @@ module.exports = {
      * usersController.register()
      */
     register: function(req, res) {
-        if (!req.body.username || !req.body.password || !req.body.email) {
+        if (!req.body.username || !req.body.password || !req.body.email || req.file) {
             return res.status(400).json({
                 success: false,
-                msg: 'Username, email and password required.'
+                message: 'Username, email, password and profile picture required.'
             });
         }
 
         var user = new User({
             username: req.body.username,
             email:    req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            photo: req.file
         });
 
         // save the user
@@ -30,13 +31,13 @@ module.exports = {
             if (err) {
                 return res.status(400).json({
                     success: false,
-                    msg: 'Username or email already exists.'
+                    message: 'Username or email already exists.'
                 });
             }
 
             return res.status(200).json({
                 success: true,
-                msg: 'Successful created new user.'
+                message: 'Successful created new user.'
             });
         });
     },
@@ -51,7 +52,7 @@ module.exports = {
             if (!user) {
                 return res.status(401).json({
                     success: false,
-                    msg: 'Authentication failed. User not found.'
+                    message: 'Authentication failed. User not found.'
                 });
             }
             // check if password matches
@@ -66,6 +67,7 @@ module.exports = {
                         user: {
                             username: user.username,
                             email   : user.email,
+                            photo   : user.photo,
                             token: 'JWT ' + token
                         }
                     });
@@ -73,7 +75,7 @@ module.exports = {
 
                 return res.status(401).json({
                     success: false,
-                    msg: 'Authentication failed. Wrong password.'
+                    message: 'Authentication failed. Wrong password.'
                 });
             });
 

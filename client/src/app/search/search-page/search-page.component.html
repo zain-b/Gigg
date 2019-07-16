@@ -1,0 +1,73 @@
+<!-- Post Content Column -->
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="event-details-card card text-center mb-3">
+
+
+      <div class="card-body">
+        <h5 class="card-title">Search</h5>
+        <p class="card-text lighter">Search Events and Stories by name, location and date!</p>
+      </div>
+
+    </div>
+
+    <div class="lighter alert alert-info alert-dismissible fade show" role="alert">
+      <ng-container *ngIf="!lastSearch">The search parameters can be combined, leave a parameter blank if you don't want to filter by it.</ng-container>
+      <ng-container *ngIf="lastSearch">Showing search results for:
+        <span *ngIf="lastSearch.text"><b>Text: </b>{{lastSearch.text}} </span>
+        <span *ngIf="lastSearch.location"><b>Location: </b>{{lastSearch.location}} </span>
+        <span *ngIf="lastSearch.date"><b>Around the date: </b>{{lastSearch.date}}</span>
+      </ng-container>
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="card">
+      <div class="card-body">
+        <form class="lighter" #searchForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="searchText">Search by text</label>
+            <input type="text" [(ngModel)]="searchData.text" name="text" class="form-control lighter" id="searchText" placeholder="Enter search text">
+            <small id="titleHelp" class="form-text text-muted">Enter text to search for in events and stories.</small>
+          </div>
+          <div class="form-group">
+            <label for="searchLocation">Search location</label>
+            <input type="text" [(ngModel)]="searchData.location" name="location" class="form-control lighter" id="searchLocation" placeholder="Enter search location">
+            <small class="form-text text-muted">Find events at a particular location e.g. Sheffield.</small>
+          </div>
+          <div class="form-group">
+            <label for="searchDate">Date</label>
+            <input type="date" [(ngModel)]="searchData.date" name="date" class="form-control lighter" id="searchDate" placeholder="Date">
+            <small id="dateHelp" class="form-text text-muted">Search within 5 days of this date</small>
+          </div>
+
+          <button type="submit" [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Search
+          </button>
+        </form>
+      </div>
+      </div>
+    </div>
+
+
+  <div class="col-md-8">
+    <div class="map"
+         leaflet
+         [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)">
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3" *ngIf="searched">
+  <div *ngIf="this.events.length === 0" class="col-md-12">
+    <div class="lighter alert alert-warning alert-dismissible fade show" role="alert">No results found!</div>
+  </div>
+
+  <div *ngIf="this.events.length" class="col-md-12">
+    <app-event-list [events]="this.events" [@enterAnimation]></app-event-list>
+  </div>
+</div>

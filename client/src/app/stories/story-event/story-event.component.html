@@ -1,0 +1,41 @@
+
+<div class="event-details-card card text-center mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Add a story!</h5>
+    <p class="card-text lighter">Add a <abbr title="Too Long Didn't Read">TLDR</abbr>, a description and select your photo's
+      from the event. <a routerLink="/register">Register?</a></p>
+  </div>
+
+</div>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" [(ngModel)]="story.title" name="title" class="form-control"
+               placeholder="Enter a short title for your story">
+
+      </div>
+      <div class="form-group">
+        <textarea [(ngModel)]="story.text" name="text" class="form-control" rows="3"
+                  placeholder="Describe your amazing story"></textarea>
+      </div>
+
+      <div class="photo-upload form-group form-control">
+        <label class="control-label">Photo(s)</label>
+        <input (change)="filesAdded($event)" required type="file" class="photo-upload-input" multiple>
+      </div>
+      <button type="submit" [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Add story
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Single story -->
+<ng-container *ngFor="let story of event.stories">
+  <app-story [story]="story"></app-story>
+</ng-container>
+
+

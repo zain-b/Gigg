@@ -1,0 +1,101 @@
+
+
+  <!-- Post Content Column -->
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="event-details-card card text-center mb-3">
+
+        <div class="card-header lighter">
+          On <span class="date">{{event.date | date:'EEEE, MMMM d, y h:mm a'}}</span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{event.title}}</h5>
+          <p class="card-text lighter">{{event.location.address}}</p>
+        </div>
+        <small class="card-footer text-muted lighter">
+          created by
+          <img class="event-user-photo mr-1 rounded-circle" src="/uploads/{{event.creator.photo}}" alt="">
+          <a href="#">{{ event.creator.username }}</a>
+          <span> {{event.createdAt | timeAgo}}</span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <img class="event-img img-fluid rounded" src="/uploads/{{event.photo}}" alt="">
+    </div>
+
+    <div class="col-md-6">
+      <div class="map"
+           leaflet
+           [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)">
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <hr>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="event-description col-md-8">
+      <!-- Preview Image -->
+
+
+      <!-- Post Content -->
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam
+        sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus
+        inventore?</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum
+        rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius
+        illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+
+      <blockquote class="blockquote">
+        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        <footer class="blockquote-footer">Someone famous in
+          <cite title="Source Title">Source Title</cite>
+        </footer>
+      </blockquote>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam
+        sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur
+        ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus,
+        est!</p>
+
+      <hr>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+
+        <div class="card-body">
+          <h5 class="card-title">Find other events</h5>
+          <p class="card-text lighter">As a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find events</a>
+        </div>
+      </div>
+
+      <div class="card mt-3">
+
+        <div class="card-body">
+          <h5 class="card-title">Find other stories</h5>
+          <p class="card-text lighter">As a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find stories</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <!-- Add story component -->
+      <app-story-event [event]='event'></app-story-event>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.alert {
+  position: relative !important;
+  top: 0;
+  width:100%;
+  text-align: center;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}

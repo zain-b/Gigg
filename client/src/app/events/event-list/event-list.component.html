@@ -1,0 +1,31 @@
+
+
+<ng-container *ngFor="let group of groups; let i = index">
+  <div *ngIf="initialised">
+    <div class="card-group text-center" [ngClass]="{'mt-3': i!=0}">
+      <div *ngFor="let event of group" class="event-card card">
+        <div class="card-header lighter">
+          <div>
+            <img class="event-user-photo mr-3 rounded-circle" src="/uploads/{{event.creator.photo}}" alt="">
+          </div>
+          <div>
+            <a class="font-weight-bold" href="#">{{event.creator.username}}</a> is hosting an event in
+            <a class="font-weight-bold" routerLink="/">{{event.location.city}}, {{event.location.country}}</a> on
+            {{event.date | date}}
+            <small class="d-block text-muted mt-2">{{ event.stories.length }} stories posted!</small>
+          </div>
+
+        </div>
+
+        <img class="card-img-top" src="/uploads/{{event.photo}}" alt="Card image cap">
+        <div class="event-card-body card-body">
+          <h5 class="card-title"><a routerLink="/events/{{event._id}}">{{event.title}}</a></h5>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Event created {{ event.createdAt | timeAgo}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-container>

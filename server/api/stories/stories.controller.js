@@ -11,7 +11,11 @@ module.exports = {
      * storiesController.list()
      */
     list: function(req, res) {
-        storiesModel.find(function(err, stories){
+        storiesModel.find()
+            .populate('creator', '-password')
+            .populate('event', '_id title')
+            .sort('-createdAt')
+            .exec(function(err, stories){
             if(err) {
                 return res.status(500).json({
                     message: 'Error getting stories.'
@@ -26,7 +30,7 @@ module.exports = {
      */
     show: function(req, res) {
         var id = req.params.id;
-        storiesModel.findOne({_id: id}, function(err, story){
+        storiesModel.findOne({_id: id}).populate('creator', '-password').exec(function(err, story){
             if(err) {
                 return res.status(500).json({
                     message: 'Error getting story.'
@@ -45,9 +49,28 @@ module.exports = {
      * storiesController.create()
      */
     create: function(req, res) {
-        var story = new storiesModel({
-            color : req.body.color,
-            door : req.body.door
+
+        if (!req.body.title || !req.body.text || !req.body.event) {
+            return res.status(400).json({
+                success: false,
+                message: 'Story title, text and event required.'
+            });
+        }
+
+        let photos = [];
+
+        if (req.files) {
+            for (let photo of req.files) {
+                photos.push(photo.filename);
+            }
+        }
+
+        let story = new storiesModel({
+            title: req.body.title,
+            text: req.body.text,
+            event: req.body.event,
+            photos: photos,
+            creator: req.user
         });
 
         story.save(function(err, story){

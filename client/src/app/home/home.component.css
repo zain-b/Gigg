@@ -1,0 +1,20 @@
+.home-banner {
+    background-image: url("/assets/home-banner.jpg");
+    margin-bottom: 1rem !important;
+}
+
+.home-banner h1 {
+    line-height: 0;
+}
+.banner-gigg {
+    font-weight:bold;
+  font-size: 45px;
+}
+
+.banner-tag-line {
+    font-size: 25px;
+}
+
+.card-title {
+    font-weight:bold;
+}

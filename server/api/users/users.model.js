@@ -15,11 +15,15 @@ var User = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
         required: true
+    },
+    photo: {
+        type: String
     },
     events: [{ type: Schema.Types.ObjectId, ref: 'Event' }],
     stories: [{ type: Schema.Types.ObjectId, ref: 'Story' }]

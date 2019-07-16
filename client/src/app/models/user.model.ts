@@ -1,5 +1,12 @@
 export class User {
-  username: string;
-  email   : string;
-  token   : string;
+
+  public _id: number;
+  public username: string;
+  public email: string;
+  public password?: string;
+  public photo: string;
+  public token?: string;
+
+  constructor() {}
+
 }

@@ -11,6 +11,8 @@ var apiRouter = require('./api/api.router');
 var passport = require('passport');
 var passportConfig = require('./config/passport');
 
+var properties = require('./config/properties');
+
 var app = express();
 
 /**
@@ -35,10 +37,11 @@ app.set('view engine', 'ejs');
  * app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
  */
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(properties.uploadsRoute, express.static(path.join(__dirname, 'uploads')));
 
 /**
  * Setup API router.

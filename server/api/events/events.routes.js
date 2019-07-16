@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var eventsController = require('./events.controller');
+var upload = require('../../config/multer');
 
 /**
  * GET
@@ -16,7 +17,9 @@ router.get('/:id', eventsController.show);
 /**
  * POST
  */
-router.post('/', passport.authenticate('jwt', { session: false}), eventsController.create);
+router.post('/create',
+    [passport.authenticate('jwt', { session: false}), upload.single('photo')],
+    eventsController.create);
 
 /**
  * PUT

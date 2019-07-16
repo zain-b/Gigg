@@ -11,11 +11,12 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     // If there is an active user with a JSON Web Token, automatically add it to headers
-    let activeUser = this.authenticationService.getUser();
+    let activeUser = this.authenticationService.getUserData();
+
     if (activeUser && activeUser.token) {
       request = request.clone({
         setHeaders: {
-          Authorization: `JWT ${activeUser.token}`
+          Authorization: activeUser.token
         }
       });
     }

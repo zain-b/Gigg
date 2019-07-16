@@ -1,0 +1,139 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.card-img-top {
+
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+
+}
+/* You can add global styles to this file, and also import other style files */
+/* stylelint-disable selector-list-comma-newline-after */
+.photo-upload {
+  height: auto !important;
+  padding: 10px 0px 15px 15px !important;
+}
+
+.photo-upload-input {
+  display: block !important;
+  font-size: 12px;
+}
+
+.user-photo {
+  width: 50px;
+  height: 50px;
+}
+
+.dashed {
+  border: 4px dashed #53b829;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.lighter {
+  font-weight: lighter !important;
+}
+
+.body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+
+
+.alert {
+  position: absolute !important;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+.flash-success {
+  background: #40c319;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.flash-error {
+  background: #f94e4e;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.flash-message {
+  z-index: 10000;
+  position: relative;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-content {
+  text-align: center !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+.event-popup-title {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.event-popup-address {
+  font-weight: lighter;
+  margin-top: 3px;
+  display: block;
+  font-size: 13px;
+}
+
+
+form, .form-control {
+  font-weight: lighter !important;
+}
+
+
+.gigg-pill {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  padding: .2rem .4rem;
+  font-size: 87.5%;
+  color: #fff;
+  background-color: #4b2f8f;
+  border-radius: .2rem;
+  display: inline-block;
+}

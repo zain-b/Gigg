@@ -1,0 +1,25 @@
+.event-user-photo {
+    width: 35px;
+    height: 35px;
+}
+
+
+.event-description {
+    text-align: justify;
+}
+
+
+.event-details-card .card-header, .event-details-card .card-footer {
+    background-color:#fff;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.event-img {
+  min-height: 300px;
+}
+

@@ -1,47 +1,58 @@
 <header>
-    <nav class="navbar lighter navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">Gigg</a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
-                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <nav class="navbar lighter navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">Gigg</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
+              aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="navbar-collapse collapse" id="navbarColor02" style="">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/events" routerLinkActive="active">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/stories" routerLinkActive="active">Stories</a>
-                    </li>
-                  <li class="nav-item">
-                    <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
-                  </li>
-                </ul>
-                <div *ngIf="(user$ | async);then logged_in else logged_out"></div>
-                <ng-template #logged_in>
-                    <div>
-                        <img class="user-photo mr-1 rounded-circle" src="/uploads/{{(user$ | async).photo}}" alt="">
-                        <a class="logged-in-username" href="#">{{(user$ | async).username}}</a>
-                        <a class="logged-in-logout ml-1" (click)="logout()" routerLink='/'>logout?</a>
-                    </div>
-                </ng-template>
-                <ng-template #logged_out>
-                    <a class="btn btn-outline-light lighter mx-1 my-2" routerLink='/login'>Log in</a>
-                    <a class="btn btn-outline-light lighter my-2" routerLink='/register'>Register</a>
-                </ng-template>
-            </div>
-        </div>
-    </nav>
+      <div class="navbar-collapse collapse" id="navbarColor02" style="">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/events" routerLinkActive="active">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/stories" routerLinkActive="active">Stories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+          </li>
+        </ul>
+        <div class="clients-connected"><span class="badge badge-secondary">{{ connections$ | async }}</span> clients connected</div>
+        <div *ngIf="(user$ | async);then logged_in else logged_out"></div>
+        <ng-template #logged_in>
+          <div>
+            <img class="user-photo mr-1 rounded-circle" src="/uploads/{{(user$ | async).photo}}" alt="">
+            <a class="logged-in-username" href="#">{{(user$ | async).username}}</a>
+            <a class="logged-in-logout ml-1" (click)="logout()" routerLink='/'>logout?</a>
+          </div>
+        </ng-template>
+        <ng-template #logged_out>
+          <a class="btn btn-outline-light lighter mx-1 my-2" routerLink='/login'>Log in</a>
+          <a class="btn btn-outline-light lighter my-2" routerLink='/register'>Register</a>
+        </ng-template>
+      </div>
+    </div>
+  </nav>
 </header>
+<div class="status-header" [ngClass]="(connected$ | async) ?'online':'offline'">
+  <ng-container *ngIf="(connected$ | async) && (syncing$ | async); then showSyncing"></ng-container>
+  <ng-container *ngIf="(connected$ | async) && !(syncing$ | async); then showUpToDate"></ng-container>
+  <ng-container *ngIf="!(connected$ | async); then showOffline"></ng-container>
 
+  <ng-template #showSyncing><b><span class="mb-1 spinner-border spinner-border-sm mr-1"></span> Syncing</b>
+  </ng-template>
+  <ng-template #showUpToDate><b>All up to date.</b> New data will be synced automatically.</ng-template>
+  <ng-template #showOffline><b>Offline mode.</b> Data will be synced as soon as you're back online.</ng-template>
+
+</div>
 <div class="container mt-4">
-    <flash-messages></flash-messages>
-    <main [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
-        <router-outlet #outlet="outlet"></router-outlet>
-    </main>
+  <flash-messages></flash-messages>
+  <main [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </main>
 </div>

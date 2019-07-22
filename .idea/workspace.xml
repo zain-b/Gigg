@@ -2,37 +2,101 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c5c4589-ef2a-4f5b-a852-7544132570f5" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-152x152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-384x384.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/icons/icon-96x96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/not-found.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.less" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/helpers/jwt.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/helpers/jwt.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/event/event.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/event/event.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/events-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/events-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/events.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/events.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/events/events.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/events.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/helpers/gigg.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/helpers/gigg.utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/login/login.component.less" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/stories-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/stories-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/stories.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/stories.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/stories.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/stories.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/stories/story/story.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/story/story.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/api.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/api.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/events/events.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/events/events.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/events/events.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/events/events.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/events/events.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/events/events.routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/stories/stories.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/stories/stories.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/stories/stories.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/stories/stories.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/stories/stories.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/stories/stories.routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/users/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/users/users.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/users/users.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/users/users.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/users/users.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/users/users.routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/properties.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/properties.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/server/bin/www" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/057f8a06689db005b07a530ffcb76af4394f659c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/057f8a06689db005b07a530ffcb76af4394f659c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/06d5161614317c695a1db1973695a51e6a8300a6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/06d5161614317c695a1db1973695a51e6a8300a6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/084d70a7f05c491dfd133f001f19053b56caa29c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/084d70a7f05c491dfd133f001f19053b56caa29c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/08871e4cfbf1f78f6cd8c7883166c9e6fd8dc702.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/08871e4cfbf1f78f6cd8c7883166c9e6fd8dc702.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/0dd378e1f66cefa3271206dce6064ed09c860c0e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/0dd378e1f66cefa3271206dce6064ed09c860c0e.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/146e3729142cd9466b4c7ac5e55afe040455db75.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/146e3729142cd9466b4c7ac5e55afe040455db75.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/1725396c2b9a5b46215d77cef6b73f6fb3d98ec3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/1725396c2b9a5b46215d77cef6b73f6fb3d98ec3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/172a1f9b6102f486e76a92f9fb1b4f316050b2ba.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/172a1f9b6102f486e76a92f9fb1b4f316050b2ba.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/2b01b3e7696d71952ce5b9553420e67b6f977fc1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/2b01b3e7696d71952ce5b9553420e67b6f977fc1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/4066f6ecc8ba73c21cabfb0183c3e1c7707861be.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/4066f6ecc8ba73c21cabfb0183c3e1c7707861be.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/4a8ec2d359bb2a4304e0f9913915032cae666ff0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/4a8ec2d359bb2a4304e0f9913915032cae666ff0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/4c95f0129e4703babf8b6895b6d9f64768980c99.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/4c95f0129e4703babf8b6895b6d9f64768980c99.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/4de14ff2b294d46006a5b6d8f249ff8f25295ca7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/4de14ff2b294d46006a5b6d8f249ff8f25295ca7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/650576b53fc630bf63d7da8384cecd7542f20062.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/650576b53fc630bf63d7da8384cecd7542f20062.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/652169323478a4d723b5ba28af5df9c6dc8436fb.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/652169323478a4d723b5ba28af5df9c6dc8436fb.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/6b2e963e4286f9a1145af7f20a600bb052b1f0be.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/6b2e963e4286f9a1145af7f20a600bb052b1f0be.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/712b9d6836640be741caae2c05179283488b0772.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/712b9d6836640be741caae2c05179283488b0772.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/790323da7a0ba197e1d21771da495f018eae917c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/790323da7a0ba197e1d21771da495f018eae917c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/87a892e4e8bf1ec216f85587248962282666c5ac.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/87a892e4e8bf1ec216f85587248962282666c5ac.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/87a892e4e8bf1ec216f85587248962282666c5ad.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/87a892e4e8bf1ec216f85587248962282666c5ad.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/943bc483a2f296decfaa7d8898617870e2428a05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/943bc483a2f296decfaa7d8898617870e2428a05.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/b0de6819692f9de4da92f6dee048bea01afbee37.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/b0de6819692f9de4da92f6dee048bea01afbee37.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/bb6b462cb368d900ad406995436d6f15b8bf78b2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/bb6b462cb368d900ad406995436d6f15b8bf78b2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/bb6b462cb368d900ad406995436d6f15b8bf78b9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/bb6b462cb368d900ad406995436d6f15b8bf78b9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/caddaec85228189a45ec1e891eca49b834b151a6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/caddaec85228189a45ec1e891eca49b834b151a6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/cc02b573e17f996aff160a42812e61c0d479ff49.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/cc02b573e17f996aff160a42812e61c0d479ff49.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/cc11ffe152ff6759be1fa21297cac30cb46f0493.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/cc11ffe152ff6759be1fa21297cac30cb46f0493.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/d45b26da5b30af3dc1e0130f7164a7c01f3b3903.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/d45b26da5b30af3dc1e0130f7164a7c01f3b3903.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/df4a968ed9ca6d48bee0e84732df5367066462ad.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/df4a968ed9ca6d48bee0e84732df5367066462ad.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/e8f539ba943e3f046d88e1150a1c7087032d6954.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/e8f539ba943e3f046d88e1150a1c7087032d6954.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/e990898670396d1a0c13e7d6d7cfccb2d0c8128d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/e990898670396d1a0c13e7d6d7cfccb2d0c8128d.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/ef6c5ad0006c0d74d6597472042d77212baa84cf.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/ef6c5ad0006c0d74d6597472042d77212baa84cf.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/f15083acf0466a88d3cd68dfd09c051890d6e860.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/f15083acf0466a88d3cd68dfd09c051890d6e860.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/f2a521b77e1f5adf7b59e24ae487b9437809c8e7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/f2a521b77e1f5adf7b59e24ae487b9437809c8e7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/fad8f7078e813442e3bee4f26579c9e31577230c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/fad8f7078e813442e3bee4f26579c9e31577230c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/ff332d0cf98da194af53786b0ab1e65639e0c12e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/ff332d0cf98da194af53786b0ab1e65639e0c12e.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,111 +117,65 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/app.js">
+        <entry file="file://$PROJECT_DIR$/server/api/stories/stories.model.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/stories/stories.routes.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/api/users/users.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            <state>
+              <caret column="41" selection-start-column="41" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/events/events.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/server/config/database.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/events/event/event.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-232">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/server/config/multer.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="114" column="71" selection-start-line="114" selection-start-column="71" selection-end-line="114" selection-end-column="71" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/server/config/passport.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/config/properties.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/app/helpers/jwt.interceptor.ts">
+        <entry file="file://$PROJECT_DIR$/server/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/search/search.service.ts">
+        <entry file="file://$PROJECT_DIR$/server/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="86" column="31" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/register/register.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/events/events.routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/api/api.router.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/client/package.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -174,12 +192,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>preca</find>
-      <find>ajax</find>
-      <find>router</find>
-      <find>cacheNamedata</find>
-      <find>datacas</find>
-      <find>datac</find>
       <find>public</find>
       <find>install'</find>
       <find>then</find>
@@ -204,6 +216,12 @@
       <find>flashMessagesService</find>
       <find>FormData</find>
       <find>assets</find>
+      <find>theme</find>
+      <find>ervice</find>
+      <find>console.log</find>
+      <find>story so</find>
+      <find>stories posted</find>
+      <find>gigg-server</find>
     </findStrings>
     <replaceStrings>
       <replace>new Date</replace>
@@ -221,57 +239,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/app/stories/story/story.component.html" />
-        <option value="$PROJECT_DIR$/server/api/stories/stories.controller.js" />
-        <option value="$PROJECT_DIR$/client/src/app/stories/story/story.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/stories/story/story.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.css" />
-        <option value="$PROJECT_DIR$/server/package.json" />
-        <option value="$PROJECT_DIR$/client/.editorconfig" />
-        <option value="$PROJECT_DIR$/client/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/app.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/models/event.model.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event/event.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/home/home.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/search/search-routing.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/helpers/leaflet.utils.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event/event.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event/event.component.ts" />
-        <option value="$PROJECT_DIR$/server/api/api.router.js" />
-        <option value="$PROJECT_DIR$/server/api/search/search.routes.js" />
-        <option value="$PROJECT_DIR$/client/src/app/models/search.model.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/search/search.service.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.css" />
-        <option value="$PROJECT_DIR$/server/api/search/search.controller.js" />
         <option value="$PROJECT_DIR$/client/src/app/helpers/myleaflet.utils.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/shared/shared.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/events/events.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/search/search.module.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/register/register.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/login/login.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/login/login.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/register/register.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/register/register.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/events/events-all/events-all.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/events/events.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/events/events-routing.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/events/event-all/event-all.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/events/events.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/stories.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/events/event-all/event-all.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/stories-all/stories-all.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/stories-all/stories-all.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/story-all/stories-all.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/story-all/story-all.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/stories-routing.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/stories.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/story-all/story-all.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/story/story.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/styles.css" />
+        <option value="$PROJECT_DIR$/client/src/app/home/home.component.css" />
+        <option value="$PROJECT_DIR$/client/src/index.html" />
+        <option value="$PROJECT_DIR$/client/src/app/helpers/gigg.utils.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts" />
+        <option value="$PROJECT_DIR$/server/api/stories/stories.controller.js" />
+        <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css" />
+        <option value="$PROJECT_DIR$/client/src/app/home/home.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/app.component.css" />
+        <option value="$PROJECT_DIR$/client/src/app/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html" />
+        <option value="$PROJECT_DIR$/server/socket/data.socket.js" />
+        <option value="$PROJECT_DIR$/client/src/app/services/socket.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/client/src/main.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/services/connectivity.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/services/data.service.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.html" />
+        <option value="$PROJECT_DIR$/client/src/gigg-service-worker.js" />
+        <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts" />
+        <option value="$PROJECT_DIR$/client/src/app/login/login.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.html" />
-        <option value="$PROJECT_DIR$/client/angular.json" />
-        <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css" />
-        <option value="$PROJECT_DIR$/client/src/app/models/location.model.ts" />
-        <option value="$PROJECT_DIR$/server/api/events/events.model.js" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/styles.css" />
-        <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/home/home.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.html" />
-        <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css" />
-        <option value="$PROJECT_DIR$/server/api/events/events.controller.js" />
-        <option value="$PROJECT_DIR$/server/app.js" />
+        <option value="$PROJECT_DIR$/server/package-lock.json" />
+        <option value="$PROJECT_DIR$/server/api/users/users.controller.js" />
+        <option value="$PROJECT_DIR$/server/package.json" />
       </list>
     </option>
   </component>
@@ -281,15 +299,21 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="PhpServers">
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-230" />
-    <option name="y" value="205" />
-    <option name="width" value="2584" />
-    <option name="height" value="1400" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-145" />
+    <option name="y" value="436" />
+    <option name="width" value="2575" />
+    <option name="height" value="1399" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -300,6 +324,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,6 +356,14 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="events" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -349,6 +382,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="events" type="462c0819:PsiDirectoryNode" />
+              <item name="event-all" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="events" type="462c0819:PsiDirectoryNode" />
               <item name="event-create" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -357,7 +399,40 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="events" type="462c0819:PsiDirectoryNode" />
+              <item name="event-list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
@@ -387,6 +462,58 @@
             <path>
               <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
               <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="stories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="stories" type="462c0819:PsiDirectoryNode" />
+              <item name="story" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="stories" type="462c0819:PsiDirectoryNode" />
+              <item name="story-all" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="stories" type="462c0819:PsiDirectoryNode" />
+              <item name="story-event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="stories" type="462c0819:PsiDirectoryNode" />
+              <item name="story-list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -402,11 +529,49 @@
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="events" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="stories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Progressive App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gigg" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -439,20 +604,24 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="ts.external.directory.path" value="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\gigg\client\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\gigg\client\src\app\events" />
-      <recent name="$PROJECT_DIR$/public" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\gigg\client\src\app\helpers" />
       <recent name="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\lab4\server\api\users" />
       <recent name="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\lab4\server\api\stories" />
       <recent name="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\lab4\server\models" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\gigg\client\src" />
+      <recent name="C:\google-drive\University\year-3\spring\COM3504 The Intelligent Web\gigg\client\src\app\events" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
@@ -623,12 +792,14 @@
       <workItem from="1562426365928" duration="6646000" />
       <workItem from="1562439416565" duration="2716000" />
       <workItem from="1562516260214" duration="116857000" />
-      <workItem from="1562977853229" duration="74089000" />
+      <workItem from="1562977853229" duration="82769000" />
+      <workItem from="1563473119039" duration="92180000" />
+      <workItem from="1563830842136" duration="555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="299876000" />
+    <option name="totallyTimeSpent" value="401291000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -640,10 +811,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24775225" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -652,15 +822,15 @@
       <window_info id="UI Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4995005" visible="true" weight="0.32997987" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.499001" weight="0.3993964" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32997987" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4995005" weight="0.32997987" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.7047952" visible="true" weight="0.32997987" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2952048" side_tool="true" visible="true" weight="0.32997987" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.7042957" weight="0.32997987" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5004995" side_tool="true" visible="true" weight="0.32997987" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" sideWeight="0.4995005" weight="0.32997987" />
@@ -674,7 +844,7 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info anchor="right" id="Maven" order="10" />
+      <window_info anchor="right" id="Maven" order="10" weight="0.32967034" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -728,251 +898,134 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/package.json">
+    <entry file="file://$PROJECT_DIR$/client/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="895" column="83" lean-forward="true" selection-start-line="895" selection-start-column="83" selection-end-line="895" selection-end-column="83" />
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="94" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/global-types/node_modules/@types/mongoose/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="2978" column="4" selection-start-line="2978" selection-start-column="4" selection-end-line="2978" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/node_modules/@types/express-serve-static-core/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1368">
-          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/search/search.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/database.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/multer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="6" lean-forward="true" selection-start-line="16" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/models/story.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/models/event.model.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/stories/stories.model.js">
+    <entry file="file://$PROJECT_DIR$/client/src/app/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/socket/data.socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/dist/client/gigg-service-worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-895" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/tsconfig.app.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/models/search.model.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/search/search.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/helpers/myleaflet.utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/animations.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/shared/shared.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        <state relative-caret-position="238">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/events/events.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/search/search.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="15" column="101" selection-start-line="15" selection-start-column="101" selection-end-line="15" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/login/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/home/home.component.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/register/register.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/register/register.component.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/events/event/event.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1048">
-          <caret line="9" column="74" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/login/login.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="3" selection-start-line="3" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/angular.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        <state relative-caret-position="357">
+          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="91" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
+            <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/models/location.model.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/services/socket.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="754">
+          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/events/events.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="137" column="24" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="4" column="87" selection-start-line="4" selection-start-column="87" selection-end-line="4" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/home/home.component.html">
+    <entry file="file://$PROJECT_DIR$/client/src/app/events/events.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="34" selection-start-line="34" selection-end-line="34" selection-end-column="52" />
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html">
+    <entry file="file://$PROJECT_DIR$/client/src/app/services/data.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/services/connectivity.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="33" column="7" selection-start-line="32" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="357">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
@@ -981,133 +1034,229 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="278">
+          <caret line="23" column="151" selection-start-line="23" selection-start-column="151" selection-end-line="23" selection-end-column="151" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story/story.component.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css">
+    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="380">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-all/event-all.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="17" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="66" column="47" lean-forward="true" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
+        <state relative-caret-position="442">
+          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        <state relative-caret-position="425">
+          <caret line="25" column="147" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="147" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css">
+    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-all/event-all.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/api.router.js">
+    <entry file="file://$PROJECT_DIR$/client/src/app/login/login.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="102">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/events/events.routes.js">
+    <entry file="file://$PROJECT_DIR$/client/src/app/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/events/events.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/search/search.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="86" column="31" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+        <state relative-caret-position="646">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/register/register.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/services/authentication.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/events/event/event.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-232">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="114" column="71" selection-start-line="114" selection-start-column="71" selection-end-line="114" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/helpers/jwt.interceptor.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="-357">
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="49" selection-start-line="49" selection-end-line="49" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="22" selection-start-line="8" selection-start-column="8" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story/story.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-all/story-all.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/gigg-service-worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/events/events.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" column="18" selection-start-line="93" selection-end-line="93" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/events/events.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/events/events.routes.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/search/search.controller.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/search/search.routes.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/stories/stories.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/stories/stories.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/stories/stories.routes.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/users/users.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/database.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/multer.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/passport.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/properties.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="Copyright.UI">
         <settings>
           <last-edited>fabios</last-edited>
@@ -1120,9 +1269,64 @@
           </splitter-proportions>
         </settings>
       </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -4,6 +4,8 @@ import { AuthenticationService } from "../services/authentication.service";
 import { FlashMessagesService } from "angular2-flash-messages";
 import { User } from "../models/user.model";
 import { first } from "rxjs/operators";
+import {ConnectivityService} from "../services/connectivity.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-register',
@@ -15,10 +17,15 @@ export class RegisterComponent implements OnInit {
   user = new User();
   files: Array<File> = [];
   loading = false;
+  connected: Observable<Boolean>;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
-              private messagesService: FlashMessagesService) {}
+              private connectivityService: ConnectivityService,
+              private messagesService: FlashMessagesService) {
+
+    this.connected = this.connectivityService.connected();
+  }
 
   ngOnInit() {
   }

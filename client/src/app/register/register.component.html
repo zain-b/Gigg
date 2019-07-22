@@ -18,33 +18,35 @@
     <div class="card">
       <div class="card-body">
         <form class="lighter" #registerForm="ngForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="registerUsername">Username</label>
-            <input type="text" [(ngModel)]="user.username" name="username" class="form-control" id="registerUsername"
-                   aria-describedby="usernameHelp" placeholder="Enter username">
-            <small id="usernameHelp" class="form-text text-muted">This is your display name.</small>
-          </div>
-          <div class="form-group">
-            <label for="registerEmail">Email address</label>
-            <input type="email" [(ngModel)]="user.email" name="email" class="form-control" id="registerEmail"
-                   aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">This is what you'll use to log in.</small>
-          </div>
-          <div class="form-group">
-            <label for="registerPassword">Password</label>
-            <input type="password" [(ngModel)]="user.password" name="password" class="form-control"
-                   id="registerPassword" aria-describedby="passwordHelp" placeholder="Password">
-            <small id="passwordHelp" class="form-text text-muted">Keep this safe!</small>
-          </div>
+          <fieldset [disabled]="!(connected | async)">
+            <div class="form-group">
+              <label for="registerUsername">Username</label>
+              <input type="text" [(ngModel)]="user.username" name="username" class="form-control" id="registerUsername"
+                     aria-describedby="usernameHelp" placeholder="Enter username">
+              <small id="usernameHelp" class="form-text text-muted">This is your display name.</small>
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email address</label>
+              <input type="email" [(ngModel)]="user.email" name="email" class="form-control" id="registerEmail"
+                     aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">This is what you'll use to log in.</small>
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Password</label>
+              <input type="password" [(ngModel)]="user.password" name="password" class="form-control"
+                     id="registerPassword" aria-describedby="passwordHelp" placeholder="Password">
+              <small id="passwordHelp" class="form-text text-muted">Keep this safe!</small>
+            </div>
 
-          <div class="photo-upload form-group form-control">
-            <label class="control-label">Profile Picture</label>
-            <input (change)="filesAdded($event)" required type="file" class="lighter photo-upload-input">
-          </div>
-          <button type="submit" [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Register
-          </button>
+            <div class="photo-upload form-group form-control">
+              <label class="control-label">Profile Picture</label>
+              <input (change)="filesAdded($event)" required type="file" class="lighter photo-upload-input">
+            </div>
+            <button type="submit" [disabled]="loading" class="btn btn-primary">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Register
+            </button>
+          </fieldset>
         </form>
       </div>
     </div>

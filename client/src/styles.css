@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 14px!important;
 }
 .card-img-top {
 
@@ -33,6 +34,7 @@ html, body {
 
 .card-title {
   font-weight: bold;
+  color: #595959;
 }
 
 .lighter {
@@ -136,4 +138,13 @@ form, .form-control {
   background-color: #4b2f8f;
   border-radius: .2rem;
   display: inline-block;
+}
+
+.gigg-footer {
+  background: #007bff!important;
+  color: white!important;
+}
+
+.gigg-footer a {
+  color: white !important;
 }

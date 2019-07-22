@@ -5,6 +5,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { first } from "rxjs/operators";
 import { Router } from "@angular/router";
+import {Observable} from "rxjs";
+import {ConnectivityService} from "../services/connectivity.service";
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,15 @@ export class LoginComponent implements OnInit {
 
   user = new User();
   loading = false;
+  connected: Observable<Boolean>;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
-              private messagesService: FlashMessagesService) {}
+              private connectivityService: ConnectivityService,
+              private messagesService: FlashMessagesService) {
+
+    this.connected = this.connectivityService.connected()
+  }
 
   ngOnInit() {
   }
@@ -30,7 +37,6 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           this.loading = false;
-          this.messagesService.show("Login successful!", { cssClass: 'flash-success', timeout: 1000 });
           this.router.navigate(['/']);
         },
         error => {

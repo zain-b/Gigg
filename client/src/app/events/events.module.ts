@@ -7,25 +7,25 @@ import {EventComponent} from "./event/event.component";
 import {EventCreateComponent} from './event-create/event-create.component';
 import {SharedModule} from "../shared/shared.module";
 import {StoriesModule} from "../stories/stories.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {BrowserModule} from "@angular/platform-browser";
+import {EventAllComponent} from './event-all/event-all.component';
 
 
 @NgModule({
-    declarations: [
-        EventListComponent,
-        EventComponent,
-        EventCreateComponent,
-    ],
-    exports: [
-        EventListComponent
-    ],
-    imports: [
-        CommonModule,
-        EventsRoutingModule,
-        SharedModule,
-        StoriesModule,
-    ]
+  declarations: [
+    EventListComponent,
+    EventComponent,
+    EventCreateComponent,
+    EventAllComponent,
+  ],
+  exports: [
+    EventListComponent
+  ],
+  imports: [
+    CommonModule,
+    EventsRoutingModule,
+    SharedModule,
+    StoriesModule,
+  ]
 })
 export class EventsModule {
 }

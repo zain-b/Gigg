@@ -6,7 +6,7 @@ import {first} from "rxjs/operators";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {latLng, tileLayer} from "leaflet";
 import * as L from 'leaflet';
-import {MyleafletUtils} from "../../helpers/myleaflet.utils";
+import {GiggUtils} from "../../helpers/gigg.utils";
 
 @Component({
   selector: 'app-event',
@@ -15,7 +15,7 @@ import {MyleafletUtils} from "../../helpers/myleaflet.utils";
 })
 export class EventComponent implements OnInit {
 
-  private event = new Event();
+  event = new Event();
   private map: L.Map;
 
   mapOptions = {
@@ -36,24 +36,20 @@ export class EventComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
 
-    this.eventsService.getEvent(id)
-      .pipe(first())
-      .subscribe(
-        event => {
-          this.event = event;
-          this.prepareMap();
-        },
-        error => {
-          this.messagesService.show(error.error.message, {
-            cssClass: 'flash-fade flash-error',
-            timeout: 1000
-          });
-        });
+    this.eventsService.getEvent(id).then(event => {
+      this.event = event;
+      this.prepareMap();
+    }, error => {
+      this.messagesService.show(error.error.message, {
+        cssClass: 'flash-fade flash-error',
+        timeout: 1000
+      });
+    });
   }
 
   prepareMap() {
-    var locationMarker = MyleafletUtils.makeCustomMarker(this.event.location.x, this.event.location.y).addTo(this.map);
-    locationMarker.bindPopup(MyleafletUtils.makeEventPopupHtml(locationMarker, this.event)).openPopup();
+    var locationMarker = GiggUtils.makeCustomMarker(this.event.location.x, this.event.location.y).addTo(this.map);
+    locationMarker.bindPopup(GiggUtils.makeEventPopupHtml(locationMarker, this.event)).openPopup();
     this.map.setView(locationMarker.getLatLng(), 12);
   }
 

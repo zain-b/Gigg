@@ -1,37 +1,63 @@
 <div class="row">
+  <div class="col-md-12 mx-auto">
+
+    <div class="event-details-card card text-center mb-3">
+
+
+      <div class="card-body">
+        <h5 class="card-title">Create an event</h5>
+        <ng-container *ngIf="(user$ | async) then loggedIn else notLoggedIn"></ng-container>
+        <ng-template #notLoggedIn>
+          <p class="card-text lighter">Oops. You must be logged in to create an event! Want to <a routerLink="/register">register?</a></p>
+          <a [routerLink]="['/login']" class="btn btn-primary">Log in</a>
+        </ng-template>
+
+        <ng-template #loggedIn>
+          <p class="card-text lighter">When creating your Gigg event remember to think of a good title. Make sure to select
+            search for and select a location. Want to see more <a routerLink="/events">events?</a></p>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <div class="col">
 
     <form #createEventForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="createEventTitle">Title</label>
-        <input type="text" [(ngModel)]="event.title" name="title" class="form-control" id="createEventTitle"
-               aria-describedby="titleHelp" placeholder="Enter title">
-        <small id="titleHelp" class="form-text text-muted">Enter a descriptive title for your event.</small>
-      </div>
-      <div class="form-group">
-        <label>Location address</label>
-        <div class="map"
-             leaflet
-             [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)">
+      <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
+        <div class="form-group">
+          <label for="createEventTitle">Title</label>
+          <input type="text" [(ngModel)]="event.title" name="title" class="form-control" id="createEventTitle"
+                 aria-describedby="titleHelp" placeholder="Enter title">
+          <small id="titleHelp" class="form-text text-muted">Enter a descriptive title for your event.</small>
+        </div>
+        <div class="form-group">
+          <label>Location address</label>
+          <div class="map"
+               leaflet
+               [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)">
+          </div>
+
+          <small id="locationHelp" class="form-text text-muted">Where is your event being held?</small>
+        </div>
+        <div class="form-group">
+          <label for="createEventDate">Date</label>
+          <input type="date" [(ngModel)]="event.date" name="date" class="form-control" id="createEventDate"
+                 aria-describedby="dateHelp" placeholder="Date">
+          <small id="dateHelp" class="form-text text-muted">When is it?</small>
+        </div>
+        <div class="photo-upload form-group form-control">
+          <label class="control-label">Main Event Photo</label>
+          <input (change)="filesAdded($event)" required type="file" class="photo-upload-input">
         </div>
 
-        <small id="locationHelp" class="form-text text-muted">Where is your event being held?</small>
-      </div>
-      <div class="form-group">
-        <label for="createEventDate">Date</label>
-        <input type="date" [(ngModel)]="event.date" name="date" class="form-control" id="createEventDate"
-               aria-describedby="dateHelp" placeholder="Date">
-        <small id="dateHelp" class="form-text text-muted">When is it?</small>
-      </div>
-      <div class="photo-upload form-group form-control">
-        <label class="control-label">Main Event Photo</label>
-        <input (change)="filesAdded($event)" required type="file" class="photo-upload-input">
-      </div>
-
-      <button type="submit" [disabled]="loading" class="btn btn-primary">
-        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-        Create event
-      </button>
+        <button type="submit" [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Create event
+        </button>
+      </fieldset>
     </form>
   </div>
 </div>

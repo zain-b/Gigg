@@ -9,7 +9,11 @@ import {Router} from "@angular/router";
 import {latLng, tileLayer} from 'leaflet';
 import * as L from 'leaflet';
 import {GeoSearchControl, OpenStreetMapProvider} from 'leaflet-geosearch';
-import {MyleafletUtils} from "../../helpers/myleaflet.utils";
+import {GiggUtils} from "../../helpers/gigg.utils";
+import {ConnectivityService} from "../../services/connectivity.service";
+import {Observable} from "rxjs";
+import {AuthenticationService} from "../../services/authentication.service";
+import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-event-create',
@@ -23,6 +27,9 @@ export class EventCreateComponent implements OnInit {
   map: L.Map;
   loading = false;
 
+  connected$: Observable<Boolean>;
+  user$: Observable<User>;
+
   mapOptions = {
     layers: [
       tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -35,7 +42,12 @@ export class EventCreateComponent implements OnInit {
 
   constructor(private eventsService: EventsService,
               private router: Router,
-              private messagesService: FlashMessagesService) {
+              private messagesService: FlashMessagesService,
+              private connectivityService: ConnectivityService,
+              private authenticationService: AuthenticationService) {
+
+    this.connected$ = this.connectivityService.connected();
+    this.user$ = this.authenticationService.getUser();
   }
 
   ngOnInit() {
@@ -80,7 +92,7 @@ export class EventCreateComponent implements OnInit {
 
   onMapReady(map: L.Map) {
     this.map = map;
-    let myIcon = MyleafletUtils.makeCustomIcon();
+    let myIcon = GiggUtils.makeCustomIcon();
 
     const provider = new OpenStreetMapProvider();
 

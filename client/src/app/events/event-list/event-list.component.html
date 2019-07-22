@@ -6,23 +6,30 @@
       <div *ngFor="let event of group" class="event-card card">
         <div class="card-header lighter">
           <div>
-            <img class="event-user-photo mr-3 rounded-circle" src="/uploads/{{event.creator.photo}}" alt="">
+            <img class="event-user-photo mb-2 rounded-circle" src="/uploads/{{event.creator.photo}}" alt="">
           </div>
           <div>
             <a class="font-weight-bold" href="#">{{event.creator.username}}</a> is hosting an event in
             <a class="font-weight-bold" routerLink="/">{{event.location.city}}, {{event.location.country}}</a> on
             {{event.date | date}}
-            <small class="d-block text-muted mt-2">{{ event.stories.length }} stories posted!</small>
+
+            <small class="d-block text-muted mt-2 lighter">
+              <ng-container *ngIf="event.stories.length then hasStories else noStories"></ng-container>
+            </small>
+
+            <ng-template #hasStories><span class="event-story-count badge badge-secondary">{{ event.stories.length }} stories</span></ng-template>
+            <ng-template #noStories>Be the first to post a story!</ng-template>
           </div>
 
         </div>
 
-        <img class="card-img-top" src="/uploads/{{event.photo}}" alt="Card image cap">
+        <img class="card-img-top" src="/uploads/{{event.photo}}" alt="Card image cap" onerror="this.onerror=null;this.src='/assets/not-found.jpg';">
+
         <div class="event-card-body card-body">
           <h5 class="card-title"><a routerLink="/events/{{event._id}}">{{event.title}}</a></h5>
         </div>
         <div class="card-footer">
-          <small class="text-muted">Event created {{ event.createdAt | timeAgo}}</small>
+          <small class="text-muted lighter">Event created {{ event.createdAt | timeAgo}}</small>
         </div>
       </div>
     </div>

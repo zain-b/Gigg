@@ -10,9 +10,25 @@
 .event-card {
   padding-right: 0;
   padding-left: 0;
+  border-top: 1px dashed #00000029;
+  border-radius: 0;
+}
+
+.event-card .card-header {
+  background-color: #fff;
 }
 
 h5 {
   margin-bottom: 0;
 }
 
+.event-story-count {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  border-radius: 3px;
+  background: #ff8005;
+  color: white;
+  position: relative;
+  bottom: 1px;
+  padding: 4px 6px 4px 6px;
+  font-size: 10px;
+}

@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {EventsService} from "../events.service";
 import {Event} from "../../models/event.model";
 import {FlashMessagesService} from "angular2-flash-messages";
+import {GiggUtils} from "../../helpers/gigg.utils";
 
 @Component({
   selector: 'app-event-list',
@@ -27,7 +28,7 @@ export class EventListComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     if(this.events) {
-      this.prepareEventGroups();
+      this.groups = GiggUtils.splitObjectsIntoGroupsOfX(this.events, this.groupSize, this.eventsToShow);
       this.initialised = true;
       return;
     }
@@ -36,7 +37,7 @@ export class EventListComponent implements OnInit, OnChanges {
       .subscribe(
         (data: Event[]) => {
           this.events = data;
-          this.prepareEventGroups();
+          this.groups = GiggUtils.splitObjectsIntoGroupsOfX(this.events, this.groupSize, this.eventsToShow);
           this.initialised = true;
         },
         error => {
@@ -47,35 +48,9 @@ export class EventListComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if(this.initialised) {
       this.events = <Event[]> changes.events.currentValue;
-      this.prepareEventGroups();
+      this.groups = GiggUtils.splitObjectsIntoGroupsOfX(this.events, this.groupSize, this.eventsToShow);
     }
   }
 
-  // Split events into groups of 3 for presentation purposes, take into account whether max events to
-  // show is provided.
-  prepareEventGroups() {
-    this.groups = [[new Event()]];
 
-    if (this.events.length <= this.groupSize) {
-      this.groups[0] = this.events;
-      return;
-    }
-
-    let numGroups = (this.events.length % this.groupSize) + 1;
-
-    for (let i = 0; i < numGroups; i++) {
-      let currentGroupStart = i * this.groupSize;
-      let currentGroupEnd = currentGroupStart + this.groupSize;
-
-      if (this.eventsToShow && currentGroupEnd > this.eventsToShow) {
-        this.groups[i] = this.events.slice(currentGroupStart, this.eventsToShow);
-      } else {
-        this.groups[i] = this.events.slice(currentGroupStart, currentGroupEnd);
-      }
-    }
-  }
-
-  trimText(text: String, length: number) {
-    return text.substring(0, length).trim();
-  }
 }

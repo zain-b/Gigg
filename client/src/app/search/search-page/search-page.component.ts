@@ -6,7 +6,7 @@ import {latLng} from "leaflet";
 import {EventsService} from "../../events/events.service";
 import {Event} from "../../models/event.model";
 import {FlashMessagesService} from "angular2-flash-messages";
-import {MyleafletUtils} from "../../helpers/myleaflet.utils";
+import {GiggUtils} from "../../helpers/gigg.utils";
 import {Search} from "../../models/search.model";
 import {first} from "rxjs/operators";
 import {animate, style, transition, trigger} from "@angular/animations";
@@ -93,11 +93,25 @@ export class SearchPageComponent implements OnInit {
   }
 
   addMarkersToMap(events: Event[]) {
+
+    /*
+     * Since I can't find a callback for when the leaflet map is ready and initialised. I have concocted this ugly
+     * (temporary) workaround. Wait till map is ready before trying to add markers to it. Check periodically if it's
+     * ready.
+     */
+    if (!this.map) {
+      setTimeout(() => {
+        this.addMarkersToMap(events);
+      }, 500);
+
+      return;
+    }
+
     this.removeAllMarkers();
 
     events.forEach(event => {
-      var locationMarker = MyleafletUtils.makeCustomMarker(event.location.x, event.location.y);
-      locationMarker.bindPopup(MyleafletUtils.makeEventPopupHtml(locationMarker, event)).openPopup();
+      var locationMarker = GiggUtils.makeCustomMarker(event.location.x, event.location.y);
+      locationMarker.bindPopup(GiggUtils.makeEventPopupHtml(locationMarker, event)).openPopup();
       locationMarker.addTo(this.map);
       this.mapMarkers.push(locationMarker);
     });

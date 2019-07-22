@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12 mx-auto">
+
+    <div class="event-details-card card text-center mb-3">
+
+
+      <div class="card-body">
+        <h5 class="card-title">Gigg stories </h5>
+        <p class="card-text lighter">Users have posted <span class="badge badge-light">{{numStories}}</span> stories on Gigg! Want to host post your own?</p>
+        <a [routerLink]="['/events']" class="btn btn-primary">Find your event</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-story-list></app-story-list>

@@ -90,6 +90,9 @@ module.exports = {
                     error: err
                 });
             }
+
+            res.io.emit('new-event', event);
+
             return res.json({
                 message: 'saved',
                 _id: event._id

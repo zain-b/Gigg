@@ -21,14 +21,4 @@ router.post('/create',
     [passport.authenticate('jwt', { session: false}), upload.single('photo')],
     eventsController.create);
 
-/**
- * PUT
- */
-router.put('/:id', passport.authenticate('jwt', { session: false}), eventsController.update);
-
-/**
- * DELETE
- */
-router.delete('/:id', passport.authenticate('jwt', { session: false}), eventsController.remove);
-
 module.exports = router;

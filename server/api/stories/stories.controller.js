@@ -80,62 +80,31 @@ module.exports = {
                     error: err
                 });
             }
-            return res.json({
-                message: 'saved',
-                _id: story._id
-            });
-        });
-    },
 
-    /**
-     * storiesController.update()
-     */
-    update: function(req, res) {
-        var id = req.params.id;
-        storiesModel.findOne({_id: id}, function(err, story){
-            if(err) {
-                return res.status(500).json({
-                    message: 'Error saving story',
-                    error: err
-                });
-            }
-            if(!story) {
-                return res.status(404).json({
-                    message: 'No such story'
-                });
-            }
-
-            story.text =  req.body.text ? req.body.text : story.text;
-            story.photos =  req.body.photos ? req.body.photos : story.photos;
-
-            story.save(function(err, story){
+            storiesModel.findOne({_id: story._id})
+                .populate('creator', '-password')
+                .populate('event')
+                .exec(function(err, story){
                 if(err) {
                     return res.status(500).json({
-                        message: 'Error getting story.'
+                        message: 'An error occured when saving story.'
                     });
                 }
                 if(!story) {
                     return res.status(404).json({
-                        message: 'No such story'
+                        message: 'Story does not exist after saving.'
                     });
                 }
-                return res.json(story);
+
+                res.io.emit('new-story', story);
+
+                return res.json({
+                    message: 'saved',
+                    _id: story._id,
+                    story: story
+                });
             });
+
         });
     },
-
-    /**
-     * storiesController.remove()
-     */
-    remove: function(req, res) {
-        var id = req.params.id;
-        storiesModel.findByIdAndRemove(id, function(err, story){
-            if(err) {
-                return res.status(500).json({
-                    message: 'Error getting story.'
-                });
-            }
-            return res.json(story);
-        });
-    }
 };

@@ -41,16 +41,6 @@ var Event = new Schema({
     stories: [{type: Schema.Types.ObjectId, ref: 'Story'}]
 }, {timestamps: true});
 
-mongoose.set('debug', true);
-
-Event.on('index', function(err) {
-    if (err) {
-        console.error('User index error: %s', err);
-    } else {
-        console.info('User indexing complete');
-    }
-});
-
 // Index the title, description and address into one index for quick searching.
 Event.index({
     title: 'text',

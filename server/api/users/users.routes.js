@@ -13,24 +13,4 @@ router.post('/register', upload.single('photo'), usersController.register);
  */
 router.post('/login', usersController.login);
 
-/**
- * GET
- */
-router.get('/', usersController.list);
-
-/**
- * GET
- */
-router.get('/:id', usersController.show);
-
-/**
- * PUT
- */
-router.put('/:id', usersController.update);
-
-/**
- * DELETE
- */
-router.delete('/:id', usersController.remove);
-
 module.exports = router;

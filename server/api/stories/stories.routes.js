@@ -22,14 +22,4 @@ router.post('/create',
     [passport.authenticate('jwt', { session: false}), upload.array('photos', 12)],
     storiesController.create);
 
-/**
- * PUT
- */
-router.put('/:id', storiesController.update);
-
-/**
- * DELETE
- */
-router.delete('/:id', storiesController.remove);
-
 module.exports = router;

@@ -3,3 +3,26 @@
     height: 50px;
 }
 
+.story-photo-count {
+  border-radius: 3px;
+  background: #0569ff;
+  color: white;
+  position: relative;
+  bottom: 1px;
+  margin-right:4px;
+  padding: 4px 6px 4px 6px;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size: 10px;
+}
+
+
+.story-card {
+  padding-right: 0;
+  padding-left: 0;
+  border-top: 1px dashed #00000029;
+  border-radius: 0;
+}
+
+.story-card .card-header {
+  background-color: #fff;
+}

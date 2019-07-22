@@ -4,15 +4,16 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('progressiveapp:server');
-var https = require('https');
+var app = require('../app').app;
+
+
+var debug = require('debug')('gigg-server:server');
+var http = require('http');
 var fs = require('fs-extra');
 
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
@@ -27,9 +28,7 @@ var options = {
 /**
  * Create HTTPs server using the options
  */
-var server = https.createServer(options, app);
-// var server = http.createServer(app);
-
+var server = require('../app').server;
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -42,7 +41,6 @@ server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 

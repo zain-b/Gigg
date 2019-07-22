@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var database = require('./config/database');
 var apiRouter = require('./api/api.router');
@@ -14,6 +15,21 @@ var passportConfig = require('./config/passport');
 var properties = require('./config/properties');
 
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+var dataSocket = require('./socket/data.socket');
+/**
+ * Add the Socket.io object to each request to allow controllers to emit events
+ */
+app.use(function(req, res, next){
+    res.io = io;
+    next();
+});
+
+/**
+ * Allow cross-origin resource sharing.
+ */
+app.use(cors());
 
 /**
  * Connect to database.
@@ -21,10 +37,19 @@ var app = express();
 database.connect();
 
 /**
- * Passport setup.
+ * Configure passport with JSON Web Tokens for a stateless API.
+ */
+passportConfig.configure(passport);
+
+/**
+ * Set up sockets to emit new data to clients.
+ */
+dataSocket.setup(io);
+
+/**
+ * Passport middleware setup.
  */
 app.use(passport.initialize());
-passportConfig.configure(passport);
 
 /**
  * View engine setup.
@@ -79,4 +104,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = {app: app, server: server};

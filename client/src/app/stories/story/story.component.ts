@@ -12,31 +12,29 @@ import {first} from "rxjs/operators";
 })
 export class StoryComponent implements OnInit {
 
-    @Input()
-    story: Story;
+  @Input()
+  story: Story;
 
-    constructor(private storiesService: StoriesService,
-                private route: ActivatedRoute,
-                private messagesService: FlashMessagesService) { }
+  constructor(private storiesService: StoriesService,
+              private route: ActivatedRoute,
+              private messagesService: FlashMessagesService) {
+  }
 
-    ngOnInit() {
-        if (this.story) {
-            console.log("story so returning");
-            return}
-
-        let id = this.route.snapshot.params['id'];
-        console.log("Getting story.")
-        this.storiesService.getStory(id)
-            .pipe(first())
-            .subscribe(
-                story => {
-                    this.story = story;
-                },
-                error => {
-                    this.messagesService.show(error.error.message, {
-                        cssClass: 'flash-fade flash-error',
-                        timeout: 1000
-                    });
-                });
+  ngOnInit() {
+    if (this.story) {
+      return
     }
+
+    let id = this.route.snapshot.params['id'];
+    this.storiesService.getStory(id).then(
+        story => {
+          this.story = story;
+        },
+        error => {
+          this.messagesService.show(error.error.message, {
+            cssClass: 'flash-fade flash-error',
+            timeout: 1000
+          });
+        });
+  }
 }

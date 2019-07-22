@@ -1,20 +1,62 @@
 .home-banner {
-    background-image: url("/assets/home-banner.jpg");
-    margin-bottom: 1rem !important;
+  background-image: url("/assets/home-banner.jpg");
+  margin-bottom: 1rem !important;
+  padding: 15px;
+  text-align: center;
 }
 
 .home-banner h1 {
-    line-height: 0;
+
 }
-.banner-gigg {
-    font-weight:bold;
+
+.home-card {
+  border: none;
+  border-top: 1px dashed rgba(0,0,0,.125);
+  border-radius: 0px;
+}
+
+.home-card .card-footer {
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.navigator-card {
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-radius: 0;
+}
+
+.gigg-heading{
+  font-weight: bold;
   font-size: 45px;
+  font-style: normal;
+  margin-bottom: 19px;
+  color: #6b6b6b;
 }
 
 .banner-tag-line {
-    font-size: 25px;
+  display: block;
+  margin-top: 14px;
+  font-size: 22px;
+  font-style: normal;
 }
 
 .card-title {
-    font-weight:bold;
+  font-weight: bold;
+}
+
+.home-list {
+  list-style: none;
+  margin: 0; /* To remove default bottom margin */
+  padding: 0; /* To remove default left padding */
+  font-weight: lighter;
+
+}
+
+.home-list-item {
+  display: inline-block;
+}
+
+.separator {
+  font-size: 17px;
 }

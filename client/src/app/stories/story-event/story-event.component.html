@@ -2,8 +2,18 @@
 <div class="event-details-card card text-center mb-3">
   <div class="card-body">
     <h5 class="card-title">Add a story!</h5>
-    <p class="card-text lighter">Add a <abbr title="Too Long Didn't Read">TLDR</abbr>, a description and select your photo's
-      from the event. <a routerLink="/register">Register?</a></p>
+    <ng-container *ngIf="(user$ | async) then loggedIn else notLoggedIn"></ng-container>
+    <ng-template #notLoggedIn>
+      <p class="card-text lighter">Oops. You must be logged in to post a story! Want to <a routerLink="/register">register?</a></p>
+      <a [routerLink]="['/login']" class="btn btn-primary">Log in</a>
+    </ng-template>
+
+    <ng-template #loggedIn>
+      <p class="card-text lighter">Add a <abbr title="Too Long Didn't Read">TLDR</abbr>, a description and select your photo's
+        from the event. Want to see <a routerLink="/stories">other stories?</a></p>
+    </ng-template>
+
+
   </div>
 
 </div>
@@ -11,6 +21,7 @@
 <div class="card mb-4">
   <div class="card-body">
     <form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
+      <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
       <div class="form-group">
         <input type="text" [(ngModel)]="story.title" name="title" class="form-control"
                placeholder="Enter a short title for your story">
@@ -29,6 +40,7 @@
         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
         Add story
       </button>
+      </fieldset>
     </form>
   </div>
 </div>

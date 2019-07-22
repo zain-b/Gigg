@@ -8,5 +8,9 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(AppModule).then(() => {
+  if ('serviceWorker' in navigator && environment.production) {
+    console.log("[Angular main.ts] :: Registering Gigg service worker");
+    navigator.serviceWorker.register('./gigg-service-worker.js');
+  }
+}).catch(err => console.log('[Angular main.ts] ::' + err));

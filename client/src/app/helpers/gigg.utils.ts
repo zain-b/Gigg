@@ -2,7 +2,7 @@ import * as L from "leaflet";
 import {latLng} from "leaflet";
 import {Event} from "../models/event.model";
 
-export class MyleafletUtils {
+export class GiggUtils {
 
   static makeCustomMarker(x: number, y: number): L.Marker {
     let coords = latLng([y, x]);
@@ -25,5 +25,43 @@ export class MyleafletUtils {
     let htmlAddress = `<span class="event-popup-address">${event.location.address}</span>`
     let popupHtml = `${htmlTitle} <br> ${htmlAddress}`
     return popupHtml;
+  }
+
+  /* Split objects e.g. events, stories into groups of 3 for presentation purposes, take into account whether max events to
+   * show is provided.
+   */
+  static splitObjectsIntoGroupsOfX(objects, groupSize, objectsToShow) {
+    let groups = [[]];
+
+    if (objects.length <= groupSize) {
+      groups[0] = objects;
+      return groups;
+    }
+
+    let numGroups;
+
+    /**
+     * If we're restricting the number of objects to show then we need to calculate the number of groups based
+     * on how many we're planning to show. Otherwise just make groups based on all objects.
+     */
+    if (objectsToShow) {
+      numGroups = Math.ceil(objectsToShow / groupSize);
+    } else {
+      numGroups = Math.ceil(objects.length / groupSize);
+    }
+
+    for (let i = 0; i < numGroups; i++) {
+      let currentGroupStart = i * groupSize;
+      let currentGroupEnd = currentGroupStart + groupSize;
+
+      if (objectsToShow && currentGroupEnd > objectsToShow) {
+
+        groups[i] = objects.slice(currentGroupStart, objectsToShow);
+      } else {
+        groups[i] = objects.slice(currentGroupStart, currentGroupEnd);
+      }
+    }
+
+    return groups;
   }
 }

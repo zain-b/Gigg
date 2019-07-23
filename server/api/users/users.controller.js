@@ -12,7 +12,7 @@ module.exports = {
      * usersController.register()
      */
     register: function(req, res) {
-        if (!req.body.username || !req.body.password || !req.body.email || req.file) {
+        if (!req.body.username || !req.body.password || !req.body.email || !req.file) {
             return res.status(400).json({
                 success: false,
                 message: 'Username, email, password and profile picture required.'
@@ -23,15 +23,16 @@ module.exports = {
             username: req.body.username,
             email:    req.body.email,
             password: req.body.password,
-            photo: req.file
+            photo: req.file.filename
         });
 
         // save the user
         user.save(function (err) {
             if (err) {
+                console.log(err);
                 return res.status(400).json({
                     success: false,
-                    message: 'Username or email already exists.'
+                    message: 'Unable to save user' + err
                 });
             }
 

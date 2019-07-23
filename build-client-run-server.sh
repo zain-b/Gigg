@@ -10,7 +10,7 @@ echo [ Starting server... ]
 echo
 
 cd ../server
-DEBUG=gigg-server:* node ./bin/www
+npm start
 
 
 

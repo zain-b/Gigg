@@ -14,7 +14,7 @@ echo [ Starting server... ]
 echo.
 
 cd ../server
-call set DEBUG=gigg-server:* & node ./bin/www"
+call npm start
 
 pause
 

@@ -18,6 +18,13 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var dataSocket = require('./socket/data.socket');
+
+/**
+ * Make express print debug information by default.
+ * @type {string}
+ */
+process.env['DEBUG'] = 'gigg-server:*';
+
 /**
  * Add the Socket.io object to each request to allow controllers to emit events
  */

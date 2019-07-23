@@ -8,7 +8,6 @@ import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {RegisterComponent} from './register/register.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {FlashMessagesModule} from 'angular2-flash-messages';
 import {CommonModule} from "@angular/common";
 import {SharedModule} from "./shared/shared.module";
 import {StoriesModule} from './stories/stories.module';
@@ -25,7 +24,6 @@ import {SearchModule} from "./search/search.module";
   imports: [
     CommonModule,
     HttpClientModule,
-    FlashMessagesModule.forRoot(),
     EventsModule,
     StoriesModule,
     SearchModule,

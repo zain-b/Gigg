@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { User } from '../models/user.model';
 import {map} from "rxjs/operators";
+import {MessagesService} from "./messages.service";
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -17,7 +18,9 @@ export class AuthenticationService {
    */
   private user$: BehaviorSubject<User>;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient,
+              private router: Router,
+              private messagesService: MessagesService) {
     this.user$ = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
   }
 
@@ -51,6 +54,7 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
     this.user$.next(null);
+    this.messagesService.sendMessage({success: true, text: "Logged out, see you next time."});
     this.router.navigateByUrl('/');
   }
 }

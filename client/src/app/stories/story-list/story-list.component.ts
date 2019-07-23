@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Story} from "../../models/story.model";
 import {StoriesService} from "../stories.service";
-import {FlashMessagesService} from "angular2-flash-messages";
 import {GiggUtils} from "../../helpers/gigg.utils";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-story-list',
@@ -22,7 +22,7 @@ export class StoryListComponent implements OnInit {
   initialised = false;
 
   constructor(private storiesService: StoriesService,
-              private messagesService: FlashMessagesService) {
+              private messagesService: MessagesService) {
   }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class StoryListComponent implements OnInit {
           this.initialised = true;
         },
         error => {
-          this.messagesService.show(error.error.message, {cssClass: 'flash-fade flash-error', timeout: 1000});
+          this.messagesService.sendMessage({success: false, text: error.error.message});
         });
   }
 

@@ -23,8 +23,8 @@
     <form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
       <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
       <div class="form-group">
-        <input type="text" [(ngModel)]="story.title" name="title" class="form-control"
-               placeholder="Enter a short title for your story">
+        <input type="text" [(ngModel)]="story.tldr" name="tldr" class="form-control"
+               placeholder="Enter a TLDR for your story">
 
       </div>
       <div class="form-group">

@@ -51,7 +51,11 @@
 
 </div>
 <div class="container mt-4">
-  <flash-messages></flash-messages>
+  <div *ngIf="(messages$ | async).show" class="messages" [ngClass]="(messages$ | async).success ? 'success' : 'error'" [@fadeInOut]>
+    <ng-container *ngIf="(messages$ | async).success then success else error"></ng-container>
+    <ng-template #success>Success&mdash;{{(messages$ | async).text}}</ng-template>
+    <ng-template #error>Error&mdash;{{(messages$ | async).text}}</ng-template>
+  </div>
   <main [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
     <router-outlet #outlet="outlet"></router-outlet>
   </main>

@@ -1,14 +1,14 @@
 <div class="story">
     <div  class="media mb-4">
-        <img class="story-user-photo d-flex mr-3 rounded-circle" src="/uploads/{{story.creator.photo}}" alt="">
+        <img class="story-user-photo d-flex mr-3 rounded-circle" src="/uploads/{{story?.creator?.photo}}" alt="">
         <div class="media-body">
-            <h5 class="mt-0"><a routerLink="[/]">{{ story.creator.username }}</a></h5>
-            <div class="story-time">{{ story.createdAt | timeAgo}}</div>
-            <div class="story-text">{{ story.text }}</div>
+            <h5 class="mt-0"><a routerLink="[/]">{{ story?.creator?.username }}</a></h5>
+            <div class="story-time">{{ story?.createdAt | timeAgo}}</div>
+            <div class="story-text">{{ story?.text }}</div>
 
             <div class="tldr">
                 <div class="tldr-tag">TLDR</div>
-                <footer class="tldr-text blockquote-footer">{{ story.title }}</footer>
+                <footer class="tldr-text blockquote-footer">{{ story?.tldr }}</footer>
             </div>
         </div>
 
@@ -16,7 +16,7 @@
     </div>
 
     <div class="story-images row no-gutters mb-4">
-        <div *ngFor="let photo of story.photos" class="col-md-4 .p-3">
+        <div *ngFor="let photo of story?.photos" class="col-md-4 .p-3">
 
             <a href="//uploads/{{photo}}">
                 <img class="story-image" src="/uploads/{{photo}}">

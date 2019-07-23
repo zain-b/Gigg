@@ -3,7 +3,7 @@ import {Event} from "./event.model";
 
 export class Story {
     public _id: number;
-    public title: string;
+    public tldr: string;
     public text: string;
     public createdAt: string;
     public photos: string[];

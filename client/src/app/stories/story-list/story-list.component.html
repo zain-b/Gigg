@@ -17,14 +17,14 @@
             <ng-template #hasPhotos><span class="story-photo-count badge badge-secondary">{{ story.photos.length }} photos</span>
 
             </ng-template>
-            <ng-template #noPhotos>No photos/</ng-template>
+            <ng-template #noPhotos>This story has no photos</ng-template>
           </div>
 
         </div>
         <img class="card-img-top" src="/uploads/{{story.photos[0]}}" alt="Card image cap" onerror="this.onerror=null;this.src='/assets/not-found.jpg';">
 
         <div class="card-body">
-          <h5 class="card-title"><a routerLink="/stories/{{story._id}}">{{story.title}}</a></h5>
+          <h5 class="card-title"><a routerLink="/stories/{{story._id}}">{{story.tldr}}</a></h5>
           <p class="card-text lighter">{{ trimText(story.text, 150)}}...</p>
         </div>
         <div class="card-footer">

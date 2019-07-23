@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../services/authentication.service";
-import { FlashMessagesService } from "angular2-flash-messages";
 import { User } from "../models/user.model";
 import { first } from "rxjs/operators";
 import {ConnectivityService} from "../services/connectivity.service";
 import {Observable} from "rxjs";
+import {MessagesService} from "../services/messages.service";
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
               private connectivityService: ConnectivityService,
-              private messagesService: FlashMessagesService) {
+              private messagesService: MessagesService) {
 
     this.connected = this.connectivityService.connected();
   }
@@ -46,12 +46,12 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         data => {
           this.loading = false;
-          this.messagesService.show("Registration successful, please log in!", { cssClass: 'flash-success', timeout: 1000 });
+          this.messagesService.sendMessage({success: true, text: "Registration successful, please log in!"});
           this.router.navigate(['/login']);
         },
         error => {
           this.loading = false;
-          this.messagesService.show(error.error.message, {cssClass: 'flash-fade flash-error', timeout: 1000});
+          this.messagesService.sendMessage({success: false, text: error.error.message});
         });
   }
 

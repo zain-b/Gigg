@@ -3,7 +3,6 @@ import {first} from "rxjs/operators";
 
 import {Event} from "../../models/event.model";
 import {EventsService} from "../events.service";
-import {FlashMessagesService} from "angular2-flash-messages";
 import {Router} from "@angular/router";
 
 import {latLng, tileLayer} from 'leaflet';
@@ -14,6 +13,7 @@ import {ConnectivityService} from "../../services/connectivity.service";
 import {Observable} from "rxjs";
 import {AuthenticationService} from "../../services/authentication.service";
 import {User} from "../../models/user.model";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-event-create',
@@ -42,7 +42,7 @@ export class EventCreateComponent implements OnInit {
 
   constructor(private eventsService: EventsService,
               private router: Router,
-              private messagesService: FlashMessagesService,
+              private messagesService: MessagesService,
               private connectivityService: ConnectivityService,
               private authenticationService: AuthenticationService) {
 
@@ -56,14 +56,31 @@ export class EventCreateComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
+
+    if (!this.event.title || !this.event.date || !this.event.location.address || !this.event.location.x ||
+      !this.event.location.y || !this.event.location.country || !this.files.length) {
+
+      this.messagesService.sendMessage({success:false, text: "All fields are required, " +
+          "don't forget to select a location and an image"});
+
+      this.loading = false;
+      return;
+    }
+
+    if (!this.event.location.city) {
+      this.messagesService.sendMessage({success: false, text: "Oops, the selected location has no city associated with it."});
+      this.loading = false;
+      return;
+    }
+
     const formData = new FormData();
     formData.set("title", this.event.title);
     formData.set("date", this.event.date);
     formData.append("location[address]", this.event.location.address);
     formData.append("location[x]", this.event.location.x.toString());
     formData.append("location[y]", this.event.location.y.toString());
-    formData.append("location[city]", this.event.location.city.toString());
     formData.append("location[country]", this.event.location.country.toString());
+    formData.append("location[city]", this.event.location.city.toString());
 
     if (this.files.length > 0) {
       formData.append("photo", this.files[0], this.files[0]['name']);
@@ -74,15 +91,12 @@ export class EventCreateComponent implements OnInit {
       .subscribe(
         data => {
           this.loading = false;
-          this.messagesService.show("Created event", {cssClass: 'flash-success', timeout: 1000});
+          this.messagesService.sendMessage({success: true, text: 'Your Gigg event has been created!'});
           this.router.navigate(['/events']);
         },
         error => {
           this.loading = false;
-          this.messagesService.show(error.error.message, {
-            cssClass: 'flash-fade flash-error',
-            timeout: 1000
-          });
+          this.messagesService.sendMessage({success: false, text: error.error.message});
         });
   }
 
@@ -118,17 +132,11 @@ export class EventCreateComponent implements OnInit {
     map.on('geosearch/showlocation', this.updateChosenLocation);
   }
 
-   updateChosenLocation = (result: any) => {
-    console.log(JSON.stringify(result.location));
-     this.event.location.address = result.location.label;
-     this.event.location.x = result.location.x;
-     this.event.location.y = result.location.y;
-     this.event.location.city = result.location.raw.address.city;
-     this.event.location.country = result.location.raw.address.country;
-     console.log(this.event.location.address);
-     console.log(this.event.location.x);
-     console.log(this.event.location.y);
-     console.log(this.event.location.city);
-     console.log(this.event.location.country);
-   }
+  updateChosenLocation = (result: any) => {
+    this.event.location.address = result.location.label;
+    this.event.location.x = result.location.x;
+    this.event.location.y = result.location.y;
+    this.event.location.city = result.location.raw.address.city;
+    this.event.location.country = result.location.raw.address.country;
+  }
 }

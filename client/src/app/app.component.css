@@ -48,3 +48,27 @@
   position: relative;
   font-size: 11px;
 }
+
+.messages {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content; /* Need a specific value to work */
+  text-align: center;
+  z-index: 300000;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.success {
+  background: #00c5bc;
+}
+
+.error {
+  background: #ff3a3afa;
+}

@@ -7,17 +7,17 @@
       <div class="event-details-card card text-center mb-3">
 
         <div class="card-header lighter">
-          On <span class="date">{{event.date | date:'EEEE, MMMM d, y h:mm a'}}</span>
+          On <span class="date">{{event?.date | date:'EEEE, MMMM d, y h:mm a'}}</span>
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{event.title}}</h5>
-          <p class="card-text lighter">{{event.location.address}}</p>
+          <h5 class="card-title">{{event?.title}}</h5>
+          <p class="card-text lighter">{{event.location?.address}}</p>
         </div>
         <small class="card-footer text-muted lighter">
           created by
-          <img class="event-user-photo mr-1 rounded-circle" src="/uploads/{{event.creator.photo}}" alt="">
-          <a href="#">{{ event.creator.username }}</a>
-          <span> {{event.createdAt | timeAgo}}</span>
+          <img class="event-user-photo mr-1 rounded-circle" src="/uploads/{{event?.creator?.photo}}" alt="">
+          <a href="#">{{ event?.creator?.username }}</a>
+          <span> {{event?.createdAt | timeAgo}}</span>
         </small>
       </div>
     </div>
@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <img class="event-img img-fluid rounded" src="/uploads/{{event.photo}}" alt="">
+      <img class="event-img img-fluid rounded" src="/uploads/{{event?.photo}}" alt="">
     </div>
 
     <div class="col-md-6">

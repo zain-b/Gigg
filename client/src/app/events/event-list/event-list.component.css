@@ -12,6 +12,7 @@
   padding-left: 0;
   border-top: 1px dashed #00000029;
   border-radius: 0;
+  max-width:370px;
 }
 
 .event-card .card-header {

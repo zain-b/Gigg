@@ -2,8 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Story} from "../../models/story.model";
 import {StoriesService} from "../stories.service";
 import {ActivatedRoute} from "@angular/router";
-import {FlashMessagesService} from "angular2-flash-messages";
-import {first} from "rxjs/operators";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-story',
@@ -17,7 +16,7 @@ export class StoryComponent implements OnInit {
 
   constructor(private storiesService: StoriesService,
               private route: ActivatedRoute,
-              private messagesService: FlashMessagesService) {
+              private messagesService: MessagesService) {
   }
 
   ngOnInit() {
@@ -31,10 +30,7 @@ export class StoryComponent implements OnInit {
           this.story = story;
         },
         error => {
-          this.messagesService.show(error.error.message, {
-            cssClass: 'flash-fade flash-error',
-            timeout: 1000
-          });
+          this.messagesService.sendMessage({success: false, text: error.error.message});
         });
   }
 }

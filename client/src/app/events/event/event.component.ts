@@ -2,11 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Event} from '../../models/event.model'
 import {EventsService} from "../events.service";
 import {ActivatedRoute} from "@angular/router";
-import {first} from "rxjs/operators";
-import {FlashMessagesService} from "angular2-flash-messages";
 import {latLng, tileLayer} from "leaflet";
 import * as L from 'leaflet';
 import {GiggUtils} from "../../helpers/gigg.utils";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-event',
@@ -30,7 +29,7 @@ export class EventComponent implements OnInit {
 
   constructor(private eventsService: EventsService,
               private route: ActivatedRoute,
-              private messagesService: FlashMessagesService) {
+              private messagesService: MessagesService) {
   }
 
   ngOnInit() {
@@ -40,10 +39,7 @@ export class EventComponent implements OnInit {
       this.event = event;
       this.prepareMap();
     }, error => {
-      this.messagesService.show(error.error.message, {
-        cssClass: 'flash-fade flash-error',
-        timeout: 1000
-      });
+      this.messagesService.sendMessage({success: false, text: error.error.message});
     });
   }
 

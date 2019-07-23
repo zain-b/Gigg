@@ -5,11 +5,11 @@ import {tileLayer} from "leaflet";
 import {latLng} from "leaflet";
 import {EventsService} from "../../events/events.service";
 import {Event} from "../../models/event.model";
-import {FlashMessagesService} from "angular2-flash-messages";
 import {GiggUtils} from "../../helpers/gigg.utils";
 import {Search} from "../../models/search.model";
 import {first} from "rxjs/operators";
 import {animate, style, transition, trigger} from "@angular/animations";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-search-page',
@@ -53,7 +53,7 @@ export class SearchPageComponent implements OnInit {
 
   constructor(private searchService: SearchService,
               private eventsService: EventsService,
-              private messagesService: FlashMessagesService) { }
+              private messagesService: MessagesService) { }
 
   ngOnInit() {
     this.eventsService.getEvents()
@@ -63,7 +63,7 @@ export class SearchPageComponent implements OnInit {
           this.addMarkersToMap(this.events);
         },
         error => {
-          this.messagesService.show(error.error.message, {cssClass: 'flash-fade flash-error', timeout: 1000});
+          this.messagesService.sendMessage({success: false, text: error.error.message});
         });
   }
 
@@ -80,15 +80,12 @@ export class SearchPageComponent implements OnInit {
           this.events = events;
           this.addMarkersToMap(events);
           this.searched = true;
-          this.messagesService.show("Search succeeded!", {cssClass: 'flash-success', timeout: 1000});
+          this.messagesService.sendMessage({success: true, text: 'Search succeeded!'});
           this.loading = false;
         },
         error => {
           this.loading = false;
-          this.messagesService.show(error.error.message, {
-            cssClass: 'flash-fade flash-error',
-            timeout: 1000
-          });
+          this.messagesService.sendMessage({success: false, text: error.error.message});
         });
   }
 

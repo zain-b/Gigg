@@ -11,7 +11,7 @@ class GiggDatabase extends Dexie {
     super("GiggDatabase");
     this.version(1).stores({
       events: "_id,title,date,photo,createdAt,location,creator,stories",
-      stories: "_id,title,text,createdAt,photos,event,creator"
+      stories: "_id,tldr,text,createdAt,photos,event,creator"
     });
   }
 }

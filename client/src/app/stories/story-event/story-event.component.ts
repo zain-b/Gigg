@@ -2,12 +2,12 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Event} from "../../models/event.model";
 import {Story} from "../../models/story.model";
 import {StoriesService} from "../stories.service";
-import {FlashMessagesService} from "angular2-flash-messages";
 import {first} from "rxjs/operators";
 import {AuthenticationService} from "../../services/authentication.service";
 import {Observable} from "rxjs";
 import {User} from "../../models/user.model";
 import {ConnectivityService} from "../../services/connectivity.service";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-story-event',
@@ -27,7 +27,7 @@ export class StoryEventComponent implements OnInit {
   user$: Observable<User>;
 
   constructor(private storyService: StoriesService,
-              private messagesService: FlashMessagesService,
+              private messagesService: MessagesService,
               private connectivityService: ConnectivityService,
               private authenticationService: AuthenticationService) {
 
@@ -40,8 +40,15 @@ export class StoryEventComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
+
+    if (!this.story.tldr || !this.story.text || !this.event._id) {
+      this.messagesService.sendMessage({success: false, text: 'Oops, TLDR and text are required!'});
+      this.loading = false;
+      return;
+    }
+
     const formData = new FormData();
-    formData.set("title", this.story.title);
+    formData.set("tldr", this.story.tldr);
     formData.set("text", this.story.text);
     formData.set("event", this.event._id);
 
@@ -54,17 +61,13 @@ export class StoryEventComponent implements OnInit {
       .subscribe(
         (data: {story: Story}) => {
           this.loading = false;
-          this.messagesService.show("Created story!", {cssClass: 'flash-success', timeout: 1000});
-          console.log(JSON.stringify(data));
+          this.messagesService.sendMessage({success: true, text: 'Created story!'});
           this.event.stories.unshift(data.story);
           this.story = new Story();
         },
         error => {
           this.loading = false;
-          this.messagesService.show(error.error.message, {
-            cssClass: 'flash-fade flash-error',
-            timeout: 1000
-          });
+          this.messagesService.sendMessage({success: false, text: error.error.message});
         });
   }
 

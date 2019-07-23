@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {EventsService} from "../events.service";
 import {Event} from "../../models/event.model";
-import {FlashMessagesService} from "angular2-flash-messages";
 import {GiggUtils} from "../../helpers/gigg.utils";
+import {MessagesService} from "../../services/messages.service";
 
 @Component({
   selector: 'app-event-list',
@@ -23,7 +23,7 @@ export class EventListComponent implements OnInit, OnChanges {
   initialised = false;
 
   constructor(private eventsService: EventsService,
-              private messagesService: FlashMessagesService) {
+              private messagesService: MessagesService) {
   }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class EventListComponent implements OnInit, OnChanges {
           this.initialised = true;
         },
         error => {
-          this.messagesService.show(error.error.message, {cssClass: 'flash-fade flash-error', timeout: 1000});
+          this.messagesService.sendMessage({success: false, text: error.error.message})
         });
   }
 

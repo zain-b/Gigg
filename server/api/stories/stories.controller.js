@@ -13,7 +13,7 @@ module.exports = {
     list: function(req, res) {
         storiesModel.find()
             .populate('creator', '-password')
-            .populate('event', '_id title')
+            .populate('event', '_id tldr')
             .sort('-createdAt')
             .exec(function(err, stories){
             if(err) {
@@ -49,11 +49,11 @@ module.exports = {
      * storiesController.create()
      */
     create: function(req, res) {
+        if (!req.body.tldr || !req.body.text || !req.body.event) {
 
-        if (!req.body.title || !req.body.text || !req.body.event) {
             return res.status(400).json({
                 success: false,
-                message: 'Story title, text and event required.'
+                message: 'Could not create story, an error occured. (Story tldr, text and event required.)'
             });
         }
 
@@ -66,7 +66,7 @@ module.exports = {
         }
 
         let story = new storiesModel({
-            title: req.body.title,
+            tldr: req.body.tldr,
             text: req.body.text,
             event: req.body.event,
             photos: photos,
@@ -87,7 +87,7 @@ module.exports = {
                 .exec(function(err, story){
                 if(err) {
                     return res.status(500).json({
-                        message: 'An error occured when saving story.'
+                        message: 'An error occurred when saving story.'
                     });
                 }
                 if(!story) {

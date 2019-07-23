@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 
 var database = require('./config/database');
+var dummyData = require('./config/dummy-data');
 var apiRouter = require('./api/api.router');
 
 var passport = require('passport');
@@ -44,14 +45,24 @@ app.use(cors());
 database.connect();
 
 /**
+ * Temporary Bug hotfix, Wait till dummy data is created before initialising socket.
+ */
+(async () => {
+    try {
+         //Populate database with dummy data.
+        await dummyData.createDummyData();
+
+         //Set up sockets to emit new data to clients.
+        dataSocket.setup(io);
+    } catch (e) {
+        console.error(e);
+    }
+})();
+
+/**
  * Configure passport with JSON Web Tokens for a stateless API.
  */
 passportConfig.configure(passport);
-
-/**
- * Set up sockets to emit new data to clients.
- */
-dataSocket.setup(io);
 
 /**
  * Passport middleware setup.
@@ -68,6 +79,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(properties.uploadsRoute, express.static(path.join(__dirname, 'uploads')));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 /**
  * Setup API router.

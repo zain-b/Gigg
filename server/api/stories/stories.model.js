@@ -5,7 +5,7 @@ var Event = require('../events/events.model');
 var Schema = mongoose.Schema;
 
 var Story = new Schema({
-    title: {
+    tldr: {
         type: String,
         required: true
     },

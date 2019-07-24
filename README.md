@@ -46,7 +46,27 @@ The only third party libraries used are:
 - Search via API if client is online, otherwise locally. See:
   - [search api](server/api/search/search.controller.js)
 
-- Automatically handle relations operations, e.g. if a story is created, since events have many stories the corresponding events stories array should be updated to include it, same goes for the user model etc. See model pre-save hooks.
+- Automatically handle relations operations, e.g. if a story is created, since events have many stories the corresponding events stories array should be updated to include it, same goes for the user model etc. See model pre-save hooks. Example, creating an event:
+
+```Javascript
+// Mongoose middleware to update the User object associated with this Event.
+Event.pre('save', function (next) {
+    // Don't do anything unless this is a new Story being created
+    if (!this.isNew) {
+        return next();
+    }
+
+    // Find the user that created the event and update their events array
+    User.updateOne({_id: this.creator}, {
+        $push: {events: this._id}
+    }).then(function () {
+        next();
+    }).then(null, function (err) {
+        next(err);
+    });
+});
+
+```
 
 - When running the server the database is wiped, dummy data is added to the database automatically just before running it. See:
   - [mongo dummy data seed](server/config/dummy-data.js)

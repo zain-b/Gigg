@@ -34,6 +34,7 @@ The only third party libraries used are:
 ![](report-images/register-login.gif)
 
 - **User passwords are hashed and salted** before entering the database or being compared for authentication using Mongo lifecycle hooks.
+
 - Create events with title, description, photo, location by address, city, co-ordinates, date and creator. Requires authorisation.
 
 ![](report-images/create-event.gif)
@@ -43,8 +44,11 @@ The only third party libraries used are:
 ![](report-images/create-story.gif)
 
 - Search via API if client is online, otherwise locally.
+
 - Automatically handle relations operations, e.g. if a story is created, since events have many stories the corresponding events stories array should be updated to include it, same goes for the user model etc.
+
 - When running the server the database is wiped, dummy data is added to the database automatically just before running it.
+
 - HTTPS secured.
 
 To save time I skipped some features with very similar or trivial logic, e.g. deleting events/stories, adding comments, updating already posted things.

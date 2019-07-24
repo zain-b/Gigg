@@ -40,6 +40,8 @@ To save time I skipped some features with very similar or trivial logic, e.g. de
 
 - **Fully responsive** design using Bootstrap 4.
 
+![](report-images/responsive.png)
+
 # Install & Run
 
 The client and server both need their dependencies installed with npm. This can be done by manually navigating into their respective directories and executing commands or by running the batch/shell scripts provided in the root directory (see below).

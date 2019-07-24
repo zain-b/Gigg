@@ -40,6 +40,34 @@ My approach to this report is to outline the main features/achievements of the p
 
 - **User passwords are hashed and salted** before entering the database or being compared for authentication using Mongo lifecycle hooks.
 
+```Javascript
+/**
+ * Mongoose middleware to automatically hash the password before it's
+ * saved to the database.
+ *
+ */
+User.pre('save', function (next) {
+    var user = this;
+
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next();
+
+    // generate salt
+    bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+        if (err) return next(err);
+
+        // hash the password using new salt
+        bcrypt.hash(user.password, salt, function (err, hash) {
+            if (err) return next(err);
+
+            // override the cleartext password with the hashed one
+            user.password = hash;
+            next();
+        });
+    });
+});
+```
+
 - Create events with title, description, photo, location by address, city, co-ordinates, date and creator. Requires authorisation.
 
 ![](report-images/create-event.gif)

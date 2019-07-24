@@ -202,7 +202,38 @@ export class ConnectivityService {
 
 ![](report-images/search-by-area.gif)
 
-- Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers via my [JWTInterceptor](https://github.com/zain-b/Gigg/blob/master/client/src/app/helpers/jwt.interceptor.ts) allowing the user to access secure API endpoints such as creating events and stories.
+- Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers via a custom http interceptor allowing the user to access secure API endpoints such as creating events and stories. See:
+  - [jwt interceptor](client/src/app/helpers/jwt.interceptor.ts)
+  
+  ```Javascript
+  import { Injectable } from '@angular/core';
+  import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+  import { Observable } from 'rxjs';
+
+  import { AuthenticationService } from '../services/authentication.service';
+
+  @Injectable()
+  export class JwtInterceptor implements HttpInterceptor {
+    constructor(private authenticationService: AuthenticationService) {}
+
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+      // If there is an active user with a JSON Web Token, automatically add it to headers
+      let activeUser = this.authenticationService.getUserData();
+
+      if (activeUser && activeUser.token) {
+        request = request.clone({
+          setHeaders: {
+            Authorization: activeUser.token
+          }
+        });
+      }
+
+      return next.handle(request);
+    }
+  }
+  ```
+  
 - The app is a **PWA - fast, reliable, installable and optimised**
 
 ![](report-images/pwa-lighthouse.png)

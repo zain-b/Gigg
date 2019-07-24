@@ -15,6 +15,10 @@ My approach to this report is to outline the main features/achievements of the p
 
 ![](report-images/gigg.gif)
 
+## Offline
+
+![](report-images/offline.png)
+
 # Features/Achievements
 - Decoupled client/server architecture with no dependencies between them.
 - Batch/shell scripts provided to automatically install, build and run the app in 2 clicks.

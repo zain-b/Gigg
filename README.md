@@ -207,15 +207,14 @@ export class ConnectivityService {
 - Search events by map bounds or **search this area**. Results are added as markers with pop-ups to the map and also show up on the UI after being fed to the event-list component.
 
   When the search by area button is pressed, the search service retrieves all events from the data service (locally if offline) and checks if their latitude and longitude are within the bounds of the map. All events that satisfy this are added to the map and the search component's event list is updated (triggering a UI update). See:
-  - [search service](client/src/app/search/search.service.ts)
+  - [events service](client/src/app/events/events.service.ts)
   - [search page component](client/src/app/search/search-page/search-page.component.ts)
   
 ```Javascript
   searchThisArea() {
     let foundEvents = [];
 
-    this.searchService.searchEvents(this.searchData)
-      .pipe(first())
+    this.eventsService.getEvents()
       .subscribe(
         (events: Event[]) => {
           events.forEach(event => {

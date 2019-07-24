@@ -204,9 +204,9 @@ export class ConnectivityService {
 
 - **LeafletJS** for location selection, viewing already selected locations e.g. for events and searching.
 
-- Search events by map bounds or **search this area**. Results are added as markers with pop-ups to the map and also show up on the UI after being fed to the event-list component.
+- Search events by map bounds or **search this area**. Results are added as markers with pop-ups to the map and also show up on the UI after being fed to the event-list component. Also works **offline**.
 
-  When the search by area button is pressed, the search service retrieves all events from the data service (locally if offline) and checks if their latitude and longitude are within the bounds of the map. All events that satisfy this are added to the map and the search component's event list is updated (triggering a UI update). See:
+  When the search by area button is pressed, the events service retrieves all events from the data service (locally) and checks if their latitude and longitude are within the bounds of the map. All events that satisfy this are added to the map and the search component's event list is updated (triggering a UI update). See:
   - [events service](client/src/app/events/events.service.ts)
   - [search page component](client/src/app/search/search-page/search-page.component.ts)
   

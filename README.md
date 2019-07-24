@@ -174,16 +174,16 @@ export class ConnectivityService {
 
 ```html
 <form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
-      <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
+    <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
         
-      <!--- form code omitted for brevity --->
+        <!--- form code omitted for brevity --->
         
-      <button type="submit" [disabled]="loading" class="btn btn-primary">
-        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-        Add story
-      </button>
-      </fieldset>
-    </form>
+        <button type="submit" [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Add story
+        </button>
+    </fieldset>
+</form>
 ```
 
 ![](report-images/disabled-forms.gif)

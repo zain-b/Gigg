@@ -16,6 +16,7 @@ My approach to this report is to outline the main features/achievements of the p
 
 ![](report-images/gigg.gif)
 
+---
 #### Offline
 
 ![](report-images/offline.png)
@@ -115,10 +116,12 @@ User.pre('save', function (next) {
 });
 ```
 
+---
 - Create events with title, description, photo, location by address, city, co-ordinates, date and creator. Requires authorisation.
 
 ![](report-images/create-event.gif)
 
+---
 - Create stories for events with TLDR (too long didn't read), description, multiple photos and creator. Requires authorisation.
 
 ![](report-images/create-story.gif)

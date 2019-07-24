@@ -53,7 +53,7 @@ The only third party libraries used are:
 
 - Server side socket.io implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. An express middleware function adds the socket.io object to every response, allowing controllers to access the socket and emit events. 
 
-When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
+- When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
   - [server socket](server/socket/data.socket.js)
   - [express middleware to add socket.io to response object](server/app.js)
   - [emitting new events](server/api/events/events.controller.js) (see func::create)

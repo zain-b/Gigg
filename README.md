@@ -30,7 +30,7 @@ My approach to this report is to outline the main features/achievements of the p
   - [user controller](server/api/users/users.controller.js)
   
   ```Javascript
-      /**
+   /**
      * usersController.login()
      */
     login: function(req, res) {

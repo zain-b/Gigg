@@ -44,7 +44,7 @@ export class SearchPageComponent implements OnInit {
   mapOptions = {
     layers: [
       tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
+
       })
     ],
     zoom: 5,
@@ -59,8 +59,10 @@ export class SearchPageComponent implements OnInit {
     this.eventsService.getEvents()
       .subscribe(
         (data: Event[]) => {
-          this.events = data;
-          this.addMarkersToMap(this.events);
+          if (data.length) {
+            this.events = data;
+            this.addMarkersToMap(this.events);
+          }
         },
         error => {
           this.messagesService.sendMessage({success: false, text: error.error.message});
@@ -89,6 +91,41 @@ export class SearchPageComponent implements OnInit {
         });
   }
 
+  searchThisArea() {
+    this.loading = true;
+    let foundEvents = [];
+
+    this.searchService.searchEvents(this.searchData)
+      .pipe(first())
+      .subscribe(
+        (events: Event[]) => {
+          events.forEach(event => {
+            let coords = latLng([event.location.y, event.location.x]);
+            if(this.map.getBounds().contains(coords)) {
+              foundEvents.push(event);
+            }
+          });
+
+          this.events = foundEvents;
+          this.addMarkersToMap(foundEvents);
+          this.searched = true;
+          this.messagesService.sendMessage({success: true, text: 'Area search succeeded!'});
+          this.loading = false;
+        },
+        error => {
+          this.loading = false;
+          this.messagesService.sendMessage({success: false, text: error.error.message});
+        });
+  }
+
+  clearMapAndSearch() {
+    this.removeAllMarkers();
+    this.events = [];
+    this.searchData = new Search();
+    this.searched = false;
+    this.messagesService.sendMessage({success: true, text: 'All clear!'});
+  }
+
   addMarkersToMap(events: Event[]) {
 
     /*
@@ -106,7 +143,9 @@ export class SearchPageComponent implements OnInit {
 
     this.removeAllMarkers();
 
+    console.log("Events is " + events.length);
     events.forEach(event => {
+      console.log("adding marker");
       var locationMarker = GiggUtils.makeCustomMarker(event.location.x, event.location.y);
       locationMarker.bindPopup(GiggUtils.makeEventPopupHtml(locationMarker, event)).openPopup();
       locationMarker.addTo(this.map);
@@ -115,7 +154,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   removeAllMarkers() {
-
+    console.log("Removing all markers");
     this.mapMarkers.forEach(marker => {
       this.map.removeLayer(marker);
     });

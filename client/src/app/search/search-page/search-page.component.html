@@ -11,7 +11,9 @@
       </div>
 
     </div>
+  </div>
 
+  <div class="col-md-12">
     <div class="lighter alert alert-info alert-dismissible fade show" role="alert">
       <ng-container *ngIf="!lastSearch">The search parameters can be combined, leave a parameter blank if you don't want to filter by it.</ng-container>
       <ng-container *ngIf="lastSearch">Showing search results for:
@@ -19,11 +21,10 @@
         <span *ngIf="lastSearch.location"><b>Location: </b>{{lastSearch.location}} </span>
         <span *ngIf="lastSearch.date"><b>Around the date: </b>{{lastSearch.date}}</span>
       </ng-container>
-
     </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-4 mb-2">
 
     <div class="card">
       <div class="card-body">
@@ -53,12 +54,24 @@
       </div>
     </div>
 
-
-  <div class="col-md-8">
+  <div class="col-md-8 map-column">
     <div class="map"
          leaflet
          [leafletOptions]="mapOptions" (leafletMapReady)="onMapReady($event)">
     </div>
+
+  </div>
+
+  <div class="col-md-12 map-controls mt-3">
+    <button (click)="searchThisArea()" [disabled]="loading" class="btn btn-primary mr-2">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Search this area
+    </button>
+
+    <button (click)="clearMapAndSearch()" [disabled]="loading" class="btn btn-info">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Clear map & search
+    </button>
   </div>
 </div>
 

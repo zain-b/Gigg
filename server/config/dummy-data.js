@@ -185,7 +185,7 @@ module.exports = {
 
 function selectRandomPhotos() {
     let maximum = 7;
-    let minimum = 0;
+    let minimum = 1;
 
     var numPhotos = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 

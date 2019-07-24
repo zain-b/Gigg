@@ -17,6 +17,7 @@
 
 .event-card .card-header {
   background-color: #fff;
+  min-height: 150px;
 }
 
 h5 {

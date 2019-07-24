@@ -290,6 +290,8 @@ export class ConnectivityService {
 - Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers via a custom http interceptor allowing the user to access secure API endpoints such as creating events and stories. See:
   - [jwt interceptor](client/src/app/helpers/jwt.interceptor.ts)
   
+---
+
   ```Javascript
   import { Injectable } from '@angular/core';
   import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';

@@ -27,6 +27,9 @@ To save time I skipped some features with very similar or trivial logic, e.g. de
 - When user goes offline, all POST forms are disabled.
 - At the point of going offline the **user always has the most up to date data.**
 - As soon as user is back online, data is synced with the server.
+
+![](report-images/offline-sync.gif)
+
 - Any changes on the server, e.g. new event posted, new story posted automatically show up on client UI without any page refresh.
 - Client UI always informs user of application status e.g. offline, online, up to date, syncing, how many clients are connected etc.
 - The app can be manually F5 refreshed or closed and reopened whilst offline remaining fully functional (awkward to achieve with Angular as all components have data wiped).

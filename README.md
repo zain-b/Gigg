@@ -1,6 +1,6 @@
 # COM3504 The Intelligent Web (SPRING 2018~19)
 
-This project, **Gigg** is my submission for the COM3504 The Intelligent Web (SPRING 2018~19) assignment. The application is an installable [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built with MongoDB, Angular 8, ExpressJS and NodeJS. 
+This project, **Gigg** is my submission for the COM3504 The Intelligent Web (SPRING 2018~19) assignment. The application is an installable [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built with MongoDB, Angular 8, ExpressJS and NodeJS. It is also functional offline. 
 
 The only third party libraries used are: 
 - passport (express middleware for user authentication)
@@ -8,6 +8,8 @@ The only third party libraries used are:
 - bootstrap 4 (responsive web design)
 - Dexie (TypeScript wrapper for IndexedDB)
 - Socket.io (Web sockets)
+
+### Gigg in action
 
 ![](report-images/gigg.gif)
 

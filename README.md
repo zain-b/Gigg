@@ -169,7 +169,22 @@ export class ConnectivityService {
 ![](report-images/console-init.png)
 
 - The app is completely **functional offline** other than POST requests.
-- When user goes offline, all POST forms are disabled.
+
+- When user goes offline, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
+
+```html
+<form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
+      <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
+        
+      <!--- form code omitted for brevity --->
+        
+      <button type="submit" [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Add story
+      </button>
+      </fieldset>
+    </form>
+```
 
 ![](report-images/disabled-forms.gif)
 

@@ -68,7 +68,7 @@ To save time I skipped some features with very similar or trivial logic, e.g. de
 
 ![](report-images/search-by-area.gif)
 
-- Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers via my *JWTInterceptor* allowing the user to access secure API endpoints such as creating events and stories. See *client/helpers/jwt-interceptor.ts*
+- Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers via my *JWTInterceptor* allowing the user to access secure API endpoints such as creating events and stories. See [client/src/app/helpers/jwt.interceptor.ts](https://github.com/zain-b/Gigg/blob/master/client/src/app/helpers/jwt.interceptor.ts)
 - The app is a **PWA - fast, reliable, installable and optimised**
 
 ![](report-images/pwa-lighthouse.png)

@@ -143,9 +143,7 @@ export class SearchPageComponent implements OnInit {
 
     this.removeAllMarkers();
 
-    console.log("Events is " + events.length);
     events.forEach(event => {
-      console.log("adding marker");
       var locationMarker = GiggUtils.makeCustomMarker(event.location.x, event.location.y);
       locationMarker.bindPopup(GiggUtils.makeEventPopupHtml(locationMarker, event)).openPopup();
       locationMarker.addTo(this.map);
@@ -154,7 +152,6 @@ export class SearchPageComponent implements OnInit {
   }
 
   removeAllMarkers() {
-    console.log("Removing all markers");
     this.mapMarkers.forEach(marker => {
       this.map.removeLayer(marker);
     });

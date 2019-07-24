@@ -84,6 +84,6 @@ export class SocketService {
   setSyncFalseAfterADelay() {
     setTimeout(() => {
       this.syncing$.next(false);
-    }, 300);
+    }, 1000);
   }
 }

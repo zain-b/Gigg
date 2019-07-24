@@ -43,12 +43,22 @@ The only third party libraries used are:
 
 ![](report-images/create-story.gif)
 
-- Search via API if client is online, otherwise locally.
+- Search via API if client is online, otherwise locally. See:
+  - [search api](server/api/search/search.controller.js)
 
-- Automatically handle relations operations, e.g. if a story is created, since events have many stories the corresponding events stories array should be updated to include it, same goes for the user model etc.
+- Automatically handle relations operations, e.g. if a story is created, since events have many stories the corresponding events stories array should be updated to include it, same goes for the user model etc. See model pre-save hooks.
 
-- When running the server the database is wiped, dummy data is added to the database automatically just before running it.
+- When running the server the database is wiped, dummy data is added to the database automatically just before running it. See:
+  - [mongo dummy data seed](server/config/dummy-data.js)
 
+- Server side socket.io implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. An express middleware function adds the socket.io object to every response, allowing controllers to access the socket and emit events. 
+
+When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
+  - [server socket](server/socket/data.socket.js)
+  - [express middleware to add socket.io to response object](server/app.js)
+  - [emitting new events](server/api/events/events.controller.js) (see func::create)
+  - [emitting new stories](server/api/stories/stories.controller.js) (see func::create)
+  
 - HTTPS secured.
 
 To save time I skipped some features with very similar or trivial logic, e.g. deleting events/stories, adding comments, updating already posted things.

@@ -189,16 +189,51 @@ export class ConnectivityService {
 ![](report-images/disabled-forms.gif)
 
 - At the point of going offline the **user always has the most up to date data.**
+
 - As soon as user is back online, data is synced with the server.
 
 ![](report-images/offline-sync.gif)
 
 - Any changes on the server, e.g. new event posted, new story posted automatically show up on client UI without any page refresh.
+
 - Client UI always informs user of application status e.g. offline, online, up to date, syncing, how many clients are connected etc.
+
 - The app can be manually F5 refreshed or closed and reopened whilst offline remaining fully functional (awkward to achieve with Angular as all components have data wiped).
+
 - The app is a **Single Page App (SPA)** in its entirety with everything updating without any page refresh. This is achieved by making components subscribe to RxJS (reactive javascript) **Observables** and **BehaviourSubjects**.
+
 - **LeafletJS** for location selection, viewing already selected locations e.g. for events and searching.
-- Search events by map bounds ('Search this area').
+
+- Search events by map bounds or **search this area**. Results are added as markers with pop-ups to the map and also show up on the UI after being fed to the event-list component.
+
+  When the search by area button is pressed, the search service retrieves all events from the data service (locally if offline) and checks if their latitude and longitude are within the bounds of the map. All events that satisfy this are added to the map and the search component's event list is updated (triggering a UI update). See:
+  - [search service](client/src/app/search/search.service.ts)
+  - [search page component](client/src/app/search/search-page/search-page.component.ts)
+  
+```Javascript
+  searchThisArea() {
+    let foundEvents = [];
+
+    this.searchService.searchEvents(this.searchData)
+      .pipe(first())
+      .subscribe(
+        (events: Event[]) => {
+          events.forEach(event => {
+            let coords = latLng([event.location.y, event.location.x]);
+            if(this.map.getBounds().contains(coords)) {
+              foundEvents.push(event);
+            }
+          });
+
+          this.events = foundEvents;
+          this.addMarkersToMap(foundEvents);
+          this.messagesService.sendMessage({success: true, text: 'Area search succeeded!'});
+        },
+        error => {
+          this.messagesService.sendMessage({success: false, text: error.error.message});
+        });
+  }
+```
 
 ![](report-images/search-by-area.gif)
 

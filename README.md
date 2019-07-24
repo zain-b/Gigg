@@ -1,5 +1,15 @@
-# The Intelligent Web - Report
+# COM3504 The Intelligent Web (SPRING 2018~19)
 
+This project, **Gigg** is my submission for the COM3504 The Intelligent Web (SPRING 2018~19) assignment. The application is an installable [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built with MongoDB, Angular 8, ExpressJS and NodeJS. 
+
+The only third party libraries used are: 
+- passport (express middleware for user authentication)
+- multer (for handling multipart/form-data)
+- bootstrap 4 (responsive web design)
+- Dexie (TypeScript wrapper for IndexedDB)
+- Socket.io (Web sockets)
+
+![](report-images/gigg.gif)
 
 # Features/Achievements
 - Decoupled client/server architecture with no dependencies between them.

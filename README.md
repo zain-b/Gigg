@@ -36,7 +36,7 @@ To save time I skipped some features with very similar or trivial logic, e.g. de
 - Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers allowing the user to access secure API endpoints such as creating events and stories.
 - The app is a **PWA - fast, reliable, installable and optimised**
 
-![]("./report-images/pwa-lighthouse.png")
+![](report-images/pwa-lighthouse.png)
 
 - **Fully responsive** design using Bootstrap 4.
 

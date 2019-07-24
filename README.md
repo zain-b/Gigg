@@ -15,7 +15,7 @@ My approach to this report is to outline the main features/achievements of the p
 
 ![](report-images/gigg.gif)
 
-## Offline
+#### Offline
 
 ![](report-images/offline.png)
 

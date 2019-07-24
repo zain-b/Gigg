@@ -28,8 +28,8 @@ My approach to this report is to outline the main features/achievements of the p
   - [passport strategy](server/config/passport.js)
   - [user model hooks and methods to generate token](server/api/users/users.model.js)
   - [user controller](server/api/users/users.controller.js)
-  
-=========
+---
+
   ```Javascript
     login: function(req, res) {
         User.findOne({email: req.body.email}, function (err, user) {

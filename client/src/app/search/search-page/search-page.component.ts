@@ -95,8 +95,7 @@ export class SearchPageComponent implements OnInit {
     this.loading = true;
     let foundEvents = [];
 
-    this.searchService.searchEvents(this.searchData)
-      .pipe(first())
+    this.eventsService.getEvents()
       .subscribe(
         (events: Event[]) => {
           events.forEach(event => {

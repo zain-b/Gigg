@@ -76,7 +76,7 @@ User.pre('save', function (next) {
 
 ![](report-images/create-story.gif)
 
-- Search via API if client is online, otherwise locally. See:
+- Search via API (the client will use an API search for text fields if online, otherwise it will use its own offline search). 
   - [search api](server/api/search/search.controller.js)
 
 - Automatically handle relations operations, e.g. if a story is created, since events have many stories the corresponding events stories array should be updated to include it, same goes for the user model etc. See model pre-save hooks. Example, creating an event:

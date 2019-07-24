@@ -71,7 +71,7 @@ My approach to this report is to outline the main features/achievements of the p
 
         });
     }
-  ```
+ 
   
 - The RESTful API has a model, route, controller design.
 
@@ -116,16 +116,15 @@ User.pre('save', function (next) {
 });
 ```
 
----
 - Create events with title, description, photo, location by address, city, co-ordinates, date and creator. Requires authorisation.
 
 ![](report-images/create-event.gif)
 
----
 - Create stories for events with TLDR (too long didn't read), description, multiple photos and creator. Requires authorisation.
 
 ![](report-images/create-story.gif)
 
+---
 - Search via API (the client will use an API search for text fields if online, otherwise it will use its own offline search). 
   - [search api](server/api/search/search.controller.js)
 

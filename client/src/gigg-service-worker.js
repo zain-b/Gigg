@@ -17,7 +17,6 @@ const FILES_TO_CACHE = [
   '/manifest.webmanifest',
   '/styles.css',
   '/assets/map-icon-4.png',
-  '/assets/home-banner.jpg',
   '/assets/not-found.jpg'
 ];
 

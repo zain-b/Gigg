@@ -11,7 +11,7 @@ const photos = [
     'c8875cc705addf0e8ab0ed02f771a12891d7d017.jpg',
     'e0609b4d1bfe136c0ffa120510062a672605001f.jpg',
     'a5d0896d3ff9f183d477f9a0eaa4942e2ae0b083.jpg',
-    '2c71613ef7c7eeb175a728448110119602ccb560.jpeg'];
+    '2c71613ef7c7eeb175a728448110119602ccb560.jpg'];
 
 module.exports = {
     createDummyData: function () {
@@ -82,7 +82,7 @@ module.exports = {
         var event4 = new Event({
             title: 'Parklife 2020',
             date: '2020-06-13T00:00:00.000Z',
-            photo: '2c71613ef7c7eeb175a728448110119602ccb560.jpeg',
+            photo: '2c71613ef7c7eeb175a728448110119602ccb560.jpg',
             location: {
                 address: 'Heaton Park, Crumpsall, Manchester, Greater Manchester, North West England, England, M25 2SW, United Kingdom',
                 x: -2.2515288,

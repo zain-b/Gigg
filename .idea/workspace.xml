@@ -4,13 +4,25 @@
     <list default="true" id="3c5c4589-ef2a-4f5b-a852-7544132570f5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/home-banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/not-found.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/not-found.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/gigg-service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/gigg-service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/server/bin/www" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/config/dummy-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/dummy-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/24b744c2a97f547ff8287caf6cb7600352025514.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/24b744c2a97f547ff8287caf6cb7600352025514.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/2c6d0bad03283f75780ca364f6e9433dc2591d5c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/2c6d0bad03283f75780ca364f6e9433dc2591d5c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/2c71613ef7c7eeb175a728448110119602ccb560.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/35c371dbf07103840159c22cbb48da8ceb5fe928.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/35c371dbf07103840159c22cbb48da8ceb5fe928.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/59407c920bea9630751c91068676f130e803189f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/59407c920bea9630751c91068676f130e803189f.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/5d1fbe8aea22b90024344ada51a0d9ea2a3c2d75.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/5d1fbe8aea22b90024344ada51a0d9ea2a3c2d75.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/66b2fec06855a78facc3ca61e2846fcf4e0bb38e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/66b2fec06855a78facc3ca61e2846fcf4e0bb38e.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/6a170ff22911f393b4de848d6bdd89e1d826381d.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/6a170ff22911f393b4de848d6bdd89e1d826381d.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/95457c4815edb6fb8ae1ef3e1a6f6717e7cf92e6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/95457c4815edb6fb8ae1ef3e1a6f6717e7cf92e6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/a5d0896d3ff9f183d477f9a0eaa4942e2ae0b083.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/a5d0896d3ff9f183d477f9a0eaa4942e2ae0b083.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/b68b466977b197416b257e489b391483aa2734aa.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/b68b466977b197416b257e489b391483aa2734aa.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/c8875cc705addf0e8ab0ed02f771a12891d7d017.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/c8875cc705addf0e8ab0ed02f771a12891d7d017.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/uploads/e0609b4d1bfe136c0ffa120510062a672605001f.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/server/uploads/e0609b4d1bfe136c0ffa120510062a672605001f.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,13 +45,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/config/dummy-data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="187" column="19" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
+            <state relative-caret-position="51">
+              <caret line="84" column="63" selection-start-line="84" selection-start-column="63" selection-end-line="84" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/bin/www">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1190">
@@ -52,13 +82,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/gigg-service-worker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/services/socket.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
+            <state relative-caret-position="884">
               <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/config/properties.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -88,37 +136,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/helpers/gigg.utils.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/config/multer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -184,7 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/styles.css" />
         <option value="$PROJECT_DIR$/client/src/app/home/home.component.css" />
         <option value="$PROJECT_DIR$/client/src/index.html" />
         <option value="$PROJECT_DIR$/client/src/app/helpers/gigg.utils.ts" />
@@ -194,13 +211,11 @@
         <option value="$PROJECT_DIR$/client/src/main.ts" />
         <option value="$PROJECT_DIR$/client/src/app/services/connectivity.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.html" />
-        <option value="$PROJECT_DIR$/client/src/gigg-service-worker.js" />
         <option value="$PROJECT_DIR$/client/src/app/login/login.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.html" />
         <option value="$PROJECT_DIR$/server/package-lock.json" />
         <option value="$PROJECT_DIR$/client/angular.json" />
         <option value="$PROJECT_DIR$/server/package.json" />
-        <option value="$PROJECT_DIR$/server/bin/www" />
         <option value="$PROJECT_DIR$/server/api/users/users.controller.js" />
         <option value="$PROJECT_DIR$/server/api/stories/stories.model.js" />
         <option value="$PROJECT_DIR$/client/src/app/models/story.model.ts" />
@@ -223,7 +238,6 @@
         <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/events/event-create/event-create.component.ts" />
-        <option value="$PROJECT_DIR$/server/app.js" />
         <option value="$PROJECT_DIR$/client/src/app/stories/story-event/story-event.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/events/event/event.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/stories/story/story.component.html" />
@@ -231,10 +245,14 @@
         <option value="$PROJECT_DIR$/client/src/app/events/event-list/event-list.component.css" />
         <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/stories/story-list/story-list.component.css" />
-        <option value="$PROJECT_DIR$/server/config/dummy-data.js" />
         <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.css" />
         <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.ts" />
+        <option value="$PROJECT_DIR$/server/config/dummy-data.js" />
+        <option value="$PROJECT_DIR$/server/bin/www" />
+        <option value="$PROJECT_DIR$/client/src/gigg-service-worker.js" />
+        <option value="$PROJECT_DIR$/client/src/app/config/properties.ts" />
+        <option value="$PROJECT_DIR$/server/app.js" />
       </list>
     </option>
   </component>
@@ -755,12 +773,12 @@
       <workItem from="1563830842136" duration="555000" />
       <workItem from="1563832343777" duration="918000" />
       <workItem from="1563898536198" duration="23215000" />
-      <workItem from="1563929826918" duration="6914000" />
+      <workItem from="1563929826918" duration="8595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="432338000" />
+    <option name="totallyTimeSpent" value="434019000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -860,23 +878,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/api/users/users.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/stories/story-all/story-all.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/api.router.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/views/error.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1088,13 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/stories/story/story.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1190,29 +1184,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/dummy-data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="187" column="19" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/helpers/gigg.utils.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="32" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/services/socket.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1237,7 +1214,7 @@
     <entry file="file://$PROJECT_DIR$/client/src/app/search/search-page/search-page.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1255,6 +1232,51 @@
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/dummy-data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="84" column="63" selection-start-line="84" selection-start-column="63" selection-end-line="84" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/services/socket.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/gigg-service-worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/config/properties.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
         </state>
       </provider>
     </entry>

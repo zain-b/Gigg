@@ -1,8 +1,9 @@
 # The Intelligent Web - Report
 
-[TOC]
+
 # Features/Achievements
 - Decoupled client/server architecture with no dependencies between them.
+- Batch/shell scripts provided to automatically install, build and run the app in 2 clicks.
 
 ### Server-side
 - **Stateless Express server API** (no sessions) whilst also supporting **secure user authentication and authorization** using JSON Web Tokens (JWT) to encrypt user information. The API has an **MVC structure/design**.
@@ -12,6 +13,8 @@
 - Create stories for events with TLDR (too long didn't read), description, multiple photos and creator. Requires authorisation.
 - Search via API if client is online, otherwise locally.
 - Automatically handle relations operations, e.g. if a story is created, since events have many stories the corresponding events stories array should be updated to include it, same goes for the user model etc.
+- When running the server the database is wiped, dummy data is added to the database automatically just before running it.
+- HTTPS secured.
 
 To save time I skipped some features with very similar or trivial logic, e.g. deleting events/stories, adding comments, updating already posted things.
  
@@ -31,6 +34,10 @@ To save time I skipped some features with very similar or trivial logic, e.g. de
 - **LeafletJS** for location selection, viewing already selected locations e.g. for events and searching.
 - Search events by map bounds ('Search this area').
 - Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers allowing the user to access secure API endpoints such as creating events and stories.
+- The app is a **PWA - fast, reliable, installable and optimised**
+
+![]("./report-images/pwa-lighthouse.png")
+
 - **Fully responsive** design using Bootstrap 4.
 
 # Install & Run
@@ -79,5 +86,12 @@ Next, start the server manually by executing the command below in the server dir
 $ npm start
 ```
 
+### Opening the App
 
+In a browser of your choice navigate to the URL below to open the app.
 
+```console
+http://localhost:3001
+```
+
+**Note**: I've disabled HTTPS whilst working on localhost due to issues with auditing with applications such as Google Lighthouse when evaluating the app.

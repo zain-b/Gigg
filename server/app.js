@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var fs = require('fs-extra');
 
 var database = require('./config/database');
 var dummyData = require('./config/dummy-data');
@@ -14,6 +15,14 @@ var passport = require('passport');
 var passportConfig = require('./config/passport');
 
 var properties = require('./config/properties');
+
+/**
+ * Create HTTPs server using the options
+ */
+var options = {
+    key: fs.readFileSync('./private_access/ca.key'),
+    cert: fs.readFileSync('./private_access/ca.crt')
+};
 
 var app = express();
 var server = require('http').createServer(app);

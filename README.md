@@ -11,6 +11,7 @@ The only third party libraries used are:
 
 My approach to this report is to outline the main features/achievements of the project whilst also documenting how they have been achieved. Links to relevant code files are provided throughout the README. Code snippets are also provided where appropriate.
 
+---
 ### Gigg in action
 
 ![](report-images/gigg.gif)

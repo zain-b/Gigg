@@ -21,8 +21,14 @@ The only third party libraries used are:
 - [Stateless express server API](server/api) (no sessions) whilst also supporting **secure user authentication and authorization** using JSON Web Tokens (JWT) to encrypt user information. See 
   - [passport strategy](server/config/passport.js)
   - [user model hooks and methods to generate token](server/api/users/users.model.js)
-  - [user controller](server/api/users/users.controller.js). The API has an **MVC structure/design**.
-- **Mongo database** with a relational design between models via Mongoose. Text fields are indexed for efficient search.
+  - [user controller](server/api/users/users.controller.js)
+  
+- The API has an **MVC structure/design**.
+- **Mongo database** with a relational design between models via Mongoose. Text fields are indexed for efficient search. See:
+  - [user model](server/api/users/users.model.js)
+  - [event model](server/api/events/events.model.js)
+  - [story model](server/api/stories/stories.model.js)
+  
 - User registration and log in
 
 ![](report-images/register-login.gif)

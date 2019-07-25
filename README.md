@@ -193,7 +193,7 @@ User.pre('save', function (next) {
 
   - [mongo dummy data seed](server/config/dummy-data.js)
 
-- Server side socket.io implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. This is convenient as whenever a user goes offline and reconnects, they are sent the most up to date data. An express middleware function also adds the socket.io object to every response, allowing controllers to access the socket and emit events.
+- Server side **socket.io** implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. This is convenient as whenever a user goes offline and reconnects, they are sent the most up to date data. An express middleware function also adds the socket.io object to every response, allowing controllers to access the socket and emit events.
 
   When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
   
@@ -205,7 +205,6 @@ User.pre('save', function (next) {
   
 ```Javascript
 io.on('connection', function (socket) {
-  console.log("A user connected!");
   io.emit('connections', ++connections);
 
   getEvents.then(events => {
@@ -273,7 +272,7 @@ export class ConnectivityService {
 }
 ```
 
-- Client side **Socket.io implementation** to continuously stay in sync with the server via a service. See:
+- Client side **Socket.io implementation** to continuously stay in sync with the server via a service. The socket listens for the `complete-data` event, the `new-event` event and the `new story` event. The received data is sent to the data service for processing. See:
 
   - [socket service](client/src/app/services/socket.service.ts).
 

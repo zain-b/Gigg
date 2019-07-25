@@ -395,7 +395,9 @@ export class SocketService {
   
   The data service owns two behaviour subjects `events$` and `stories$`. Every time we update the local database with new objects from the socket service, we push the updated data into the behaviour subjects. Observables are derived from the two behaviour subjects which other components and services such as the **events service**, **stories service** and **search service** subscribe to. For example, the events service calls the `getEvents()` method in the data service and subscribes to the returned Observable. This enables the UI to automatically update seamlessly.
   
-  The resulting code to store data, retrieve data and refresh the UI from becomes simple, short and intuitive. See:
+  The resulting code to store data, retrieve data and refresh the UI from becomes simple, short and intuitive. **Note**: the below code can definitely be optimised (not done due to time constraints) e.g. instead of clearing the whole db, check what needs to be updated and update those only. Also instead of querying and pushing the whole array to the behaviour subjects, only push those that have actually changed.
+  
+  See:
 
   - [data service](client/src/app/services/data.service.ts)
   - [typescript event model](client/src/app/models/event.model.ts)

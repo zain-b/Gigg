@@ -371,9 +371,98 @@ export class SocketService {
   
   The resulting code to store and retrieve data from becomes simple, short and intuitive. See:
 
-  - [data service](client/src/app/services/data.service.ts).
+  - [data service](client/src/app/services/data.service.ts)
   - [typescript event model](client/src/app/models/event.model.ts)
   - [typescript story model](client/src/app/models/story.model.ts)
+  
+```Javascript
+class GiggDatabase extends Dexie {
+  events: Dexie.Table<Event,number>;
+
+  constructor() {
+    super("GiggDatabase");
+    this.version(1).stores({
+      events: "_id,title,date,photo,createdAt,location,creator,stories",
+      stories: "_id,tldr,text,createdAt,photos,event,creator"
+    });
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  private events$: BehaviorSubject<Event[]> = new BehaviorSubject<Event[]>([]);
+  private stories$: BehaviorSubject<Story[]> = new BehaviorSubject<Story[]>([]);
+
+  db;
+
+  constructor() { }
+
+  init() {
+    this.db = new GiggDatabase();
+  }
+
+  getEvent(id: string) {
+    return this.db.events.where('_id').equals(id).first();
+  }
+
+  getEvents(): Observable<Event[]> {
+    return this.events$.asObservable();
+  }
+
+  getStory(id: string) {
+    return this.db.stories.where('_id').equals(id).first();
+  }
+
+  getStories(): Observable<Story[]> {
+    return this.stories$.asObservable();
+  }
+
+  async processCompleteData(data: {events: Event[], stories: Story[]}) {
+    await this.db.events.clear();
+    await this.db.stories.clear();
+
+    await data.events.forEach(event => {
+      this.db.events.add(event);
+    });
+
+    await data.stories.forEach(story => {
+      this.db.stories.add(story);
+    });
+
+    this.updateEvents();
+    this.updateStories();
+  }
+
+  async processNewEvent(event: Event) {
+    await this.db.events.add(event);
+    this.updateEvents();
+  }
+
+  async processNewStory(story: Story) {
+    await this.db.stories.put(story);
+
+    await this.db.events
+      .where('_id')
+      .equals(story.event._id)
+      .modify(event => event.stories.push(story));
+
+    this.updateEvents();
+    this.updateStories();
+  }
+
+  async updateEvents() {
+    const events = await this.db.events.toArray();
+    this.events$.next(events);
+  }
+
+  async updateStories() {
+    const stories = await this.db.stories.toArray();
+    this.stories$.next(stories);
+  }  
+```
 
 - The connectivity service, socket service and data service work together to achieve seamless data syncing and a reactive UI.
 

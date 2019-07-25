@@ -225,9 +225,18 @@ io.on('connection', function (socket) {
 To save time I skipped some features with very similar or trivial logic, e.g. deleting events/stories, adding comments, updating already posted things.
  
 ### Client-side
-- **Angular 8 client** with the design split up into feature modules, shared modules, reusable components, services and helpers.
+- **Angular 8 client** written in **TypeScript** with the design split up into feature modules, shared modules, reusable components, services and helpers.
 
 ![](report-images/client-structure.png)
+
+- Since we're using TypeScript, we always explicitly declare the type of data we expect to receive in the form of TypeScript **model classes**. This allows for the **automatic deserialisation** of recieved JSON data without any extra code. This proves very handy and reduces bugs and code complexity throughout. See:
+
+  - [typescript user model](client/src/app/models/user.model.ts)
+  - [typescript event model](client/src/app/models/event.model.ts)
+  - [typescript story model](client/src/app/models/story.model.ts)
+  - [typescript location model](client/src/app/models/location.model.ts)
+  - [typescript message model](client/src/app/models/message.model.ts)
+  - [typescript search model](client/src/app/models/search.model.ts)
 
 - Supports offline mode, client stays up to date and synced with the server. See below for how it's achieved.
 
@@ -270,7 +279,7 @@ export class ConnectivityService {
 }
 ```
 
-- Client side **Socket.io implementation** to continuously stay in sync with the server via a **socket service**. The socket listens for the `complete-data` message, the `new-event` message and the `new-story` message. The received data is sent to the data service for processing.
+- Client side **Socket.io implementation** to continuously stay in sync with the server via a **socket service**. The socket listens for the `complete-data` message, the `new-event` message and the `new-story` message. The received data is sent to the data service for processing. In the callback, upon receiving data, we define the types we expect to recieve. This enables TypeScript to **automatically deserialise** the recieved data into our pre-defined models.
   
   The socket service subscribes to the connectivity service's `connection$` observable in order to disconnect itself whenever the client goes offline. It reconnects itself when the client comes back online. This is required due to a quirk in how offline mode works in some browsers (they do not seem to disconnect sockets), which makes it difficult to test otherwise.
   
@@ -335,9 +344,17 @@ export class SocketService {
 }
 ```
 
-- Data is stored locally in **IndexedDB** and all GET requests use local data via a service. See:
+- Data is always stored locally and all GET requests use local data via a service. The data service relies on being sent data from the **socket service** and interfaces with a local NoSQL database store **IndexedDB** that ships with all major browsers. The service uses [Dexie](https://dexie.org/docs/Typescript) which is a TypeScript wrapper for IndexedDB.
+
+  The cool thing about it is that it allows for **directly storing typescript classes** without any extra code and figures out primary-keys and relations itself. Since the socket service sends us data that is already deserialised into our expected typescript model classes. It is simply a matter of adding them to the database as class objects.
+  
+  The resulting code to store and retrieve data from becomes simple, short and intuitive.
+
+See:
 
   - [data service](client/src/app/services/data.service.ts).
+  - [typescript event model](client/src/app/models/event.model.ts)
+  - [typescript story model](client/src/app/models/story.model.ts)
 
 - The connectivity service, socket service and data service work together to achieve seamless data syncing and a reactive UI.
 

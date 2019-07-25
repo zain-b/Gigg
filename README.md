@@ -30,6 +30,8 @@ My approach to this report is to outline the main features/achievements of the p
   
   Since the server is **single-threaded**, **completely stateless** and **asynchronous** with **no blocking operations**, it is already capable of handling many thousands of concurrent requests. 
   
+  This means that the node server doesn't wait around for IO operations such as database searches to complete like most other conventional multi-threaded synchronous servers such as Apache Tomcat that follow the one thread per connection model. It is therefore much quicker. The server also wastes less resources, consider a request that does not require much processing, a conventional web server would need to spawn an entire thread (or use a pooled thread) to process it.  
+  
   However, it also becomes really simple to scale the application even further by spawning multiple node/express application servers/processes and putting a **reverse proxy configuration** in front of them with a server such as Nginx. This enables **load balancing** to distribute client requests evenly across backend servers, better performance and enhanced security, e.g. a DDOS attack takes out the Nginx server but the app servers would still be alive and kicking.
   
   See:

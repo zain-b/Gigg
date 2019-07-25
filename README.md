@@ -626,7 +626,7 @@ export class LoginComponent implements OnInit {
 
 - The app is completely **functional offline** other than POST requests.
 
-- When user goes offline, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
+- When user goes offline or is logged out, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
 
 ```html
 <form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">

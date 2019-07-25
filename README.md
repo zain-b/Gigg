@@ -577,9 +577,12 @@ export class AuthenticationService {
   }
   ```
   
-- A **messages service** is used by most components and some services to push information about the outcome of user actions to the client. For example, informing the user that they entered the wrong details to login. Snipped below for usage. See:
+- A **messages service** is used by most components and some services to push information about the outcome of user actions to the client. For example, informing the user that they entered the wrong details to login. 
+
+  The service owns a `messages$` behaviour subject and exposes the derived **observable** which the root `app.component.ts` subscribes to. See snippets below for usage. See:
   
   - [messages service](client/src/app/services/messages.service.ts)
+  - [app component](client/src/app/app.component.ts)
   
 ```Javascript
 ...code omitted throughout snippet...
@@ -611,7 +614,14 @@ export class LoginComponent implements OnInit {
   }
 }
 ```
-  
+
+```HTML
+  <div *ngIf="(messages$ | async).show" class="messages" [ngClass]="(messages$ | async).success ? 'success' : 'error'" [@fadeInOut]>
+    <ng-container *ngIf="(messages$ | async).success then success else error"></ng-container>
+    <ng-template #success>Success&mdash;{{(messages$ | async).text}}</ng-template>
+    <ng-template #error>Error&mdash;{{(messages$ | async).text}}</ng-template>
+  </div>
+```
   ![](report-images/messages-service.gif)
 
 - The app is completely **functional offline** other than POST requests.

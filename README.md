@@ -579,10 +579,10 @@ export class AuthenticationService {
   
 - A **messages service** is used by most components and some services to push information about the outcome of user actions to the client. For example, informing the user that they entered the wrong details to login. Snipped below for usage. See:
   
-  - [messages service](client/src/app/services/messages.services.ts)
+  - [messages service](client/src/app/services/messages.service.ts)
   
 ```Javascript
-...code omitted throughout this snippet...
+...code omitted throughout snippet...
 
 import {MessagesService} from "../services/messages.service";
 

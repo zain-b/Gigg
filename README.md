@@ -608,7 +608,7 @@ Next, execute the script to automatically build the Angular client for productio
 ### Mac/Linux
 
 ```console
-$ build-client-run-server.bat
+$ build-client-run-server.sh
 ```
 
 To run the app manually first build the client by navigating into the client directory and executing the command below. 

@@ -576,6 +576,12 @@ export class AuthenticationService {
     }
   }
   ```
+  
+- A **messages service** is used by most components and some services to push information about the outcome of user actions to the client. For example, informing the user that they entered the wrong details to login. See:
+  
+  - [messages service]
+  
+  ![](report-images/messages-service.gif)
 
 - The app is completely **functional offline** other than POST requests.
 

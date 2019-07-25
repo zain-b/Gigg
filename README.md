@@ -238,7 +238,7 @@ To save time I skipped some features with very similar or trivial logic, e.g. de
   - [typescript message model](client/src/app/models/message.model.ts)
   - [typescript search model](client/src/app/models/search.model.ts)
 
-- Supports offline mode, client stays up to date and synced with the server. See below for how it's achieved. (The sync process happens much quicker than shown in the gif, the animation was extended just to show it occuring.)
+- Supports **offline mode**, client stays up to date and **synced with the server**. See below for how it's achieved. (The sync process happens much quicker than shown in the gif, the animation was extended just to show it occuring.)
 
 ![](report-images/offline-sync.gif)
 

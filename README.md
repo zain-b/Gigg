@@ -260,12 +260,10 @@ export class ConnectivityService {
 
   init() {
     window.addEventListener('online',  (event) => {
-      console.log(this.serviceName + "Updating connectivity status: online");
       this.connectivitySubject$.next(true);
     });
 
     window.addEventListener('offline', (event) => {
-      console.log(this.serviceName + "Updating connectivity status: offline");
       this.connectivitySubject$.next(false);
     });
   }
@@ -318,23 +316,13 @@ export class ConnectivityService {
       this.connections$.next(connections);
     });
 
-    /**
-     * Add event listeners to listen for online/offline event to manually establish/disconnect a socket connection.
-     * This is needed because of the behaviour of some browsers when 'offline' mode is selected in development tools.
-     *
-     * Most browsers will not simulate offline mode for web sockets so we disconnect and connect them manually.
-     * @param event
-     */
     this.connectivityService.connected().subscribe(online => {
       if (online) {
-        console.log(this.serviceName + "Back online! Establishing socket connection.");
         this.socket.connect();
       } else {
-        console.log(this.serviceName + "Offline! Disconnecting socket connection.");
         this.socket.disconnect();
       }
     });
-
   }
 
   getSyncStatus(): Observable<Boolean> {

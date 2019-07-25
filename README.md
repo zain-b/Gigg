@@ -28,9 +28,9 @@ My approach to this report is to outline the main features/achievements of the p
 ### Server-side
 - [stateless/asynchronous express application server & RESTful API](server/api) (no sessions) whilst also supporting **secure user authentication and authorization** using JSON Web Tokens (JWT) that encrypt user information with a secret key stored on the server. 
   
-  Since the server is single-threaded, completely stateless and asynchronous with no blocking operations, it is already capable of handling many thousands of concurrent requests. 
+  Since the server is **single-threaded**, **completely stateless** and **asynchronous** with **no blocking operations**, it is already capable of handling many thousands of concurrent requests. 
   
-  However, it also becomes really simple to scale the application even further by spawning multiple node/express application servers/processes and putting a reverse proxy configuration in front of them with a server such as Nginx. This enables load-balancing to distribute client requests evenly across backend servers, better performance and enhanced security, e.g. a DDOS attack takes out the Nginx server but the app servers would still be alive and kicking.
+  However, it also becomes really **simple to scale the application** even further by spawning multiple node/express application servers/processes and putting a **reverse proxy configuration** in front of them with a server such as Nginx. This enables **load balancing** to distribute client requests evenly across backend servers, better performance and enhanced security, e.g. a DDOS attack takes out the Nginx server but the app servers would still be alive and kicking.
   
   See:
 

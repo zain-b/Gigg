@@ -494,9 +494,11 @@ export class DataService {
 
 ![](report-images/console-init.png)
 
-- An **authentication service** manages all client side aspects of user state (authenticated, logged out etc). Upon successful authentication, the server sends back a `User` object that contains an encrypted token indentifying the user. The object is stored in local storage to keep the user logged in. If the user is logged in, all requests should include the token in the `Authorization` HTTP header. See:
+- An **authentication service** manages all client side aspects of user state (authenticated, logged out etc). Upon successful authentication, the server sends back a `User` object that contains an encrypted token indentifying the user. The object is stored in local storage to keep the user logged in and is pushed to a `user$` behaviour subject that other components can subscribe to. 
 
-[authentication service](client/src/app/services/authentication.service.ts)
+  If the user is logged in, all requests should include the token in the `Authorization` HTTP header. See:
+
+  - [authentication service](client/src/app/services/authentication.service.ts)
 
 ```Javascript
 export class AuthenticationService {
@@ -539,6 +541,41 @@ export class AuthenticationService {
 ```
 
 ![](report-images/user-local-storage.png)
+
+- If the `User` object is stored locally along with the **encrypted authorisation token**, all HTTP requests through Angular are intercepted and the token is appended to request headers via a custom http interceptor allowing the user to access secure API endpoints such as creating events and stories. See:
+
+  - [jwt interceptor](client/src/app/helpers/jwt.interceptor.ts)
+  
+---
+
+  ```Javascript
+  import { Injectable } from '@angular/core';
+  import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+  import { Observable } from 'rxjs';
+
+  import { AuthenticationService } from '../services/authentication.service';
+
+  @Injectable()
+  export class JwtInterceptor implements HttpInterceptor {
+    constructor(private authenticationService: AuthenticationService) {}
+
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+      // If there is an active user with a JSON Web Token, automatically add it to headers
+      let activeUser = this.authenticationService.getUserData();
+
+      if (activeUser && activeUser.token) {
+        request = request.clone({
+          setHeaders: {
+            Authorization: activeUser.token
+          }
+        });
+      }
+
+      return next.handle(request);
+    }
+  }
+  ```
 
 - The app is completely **functional offline** other than POST requests.
 
@@ -606,41 +643,6 @@ export class AuthenticationService {
 ```
 
 ![](report-images/search-by-area.gif)
-
-- Upon successful authentication with server, an **encrypted authorisation token** is stored locally. If the token is stored, all HTTP requests through Angular are intercepted and the token is appended to request headers via a custom http interceptor allowing the user to access secure API endpoints such as creating events and stories. See:
-
-  - [jwt interceptor](client/src/app/helpers/jwt.interceptor.ts)
-  
----
-
-  ```Javascript
-  import { Injectable } from '@angular/core';
-  import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-  import { Observable } from 'rxjs';
-
-  import { AuthenticationService } from '../services/authentication.service';
-
-  @Injectable()
-  export class JwtInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthenticationService) {}
-
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-      // If there is an active user with a JSON Web Token, automatically add it to headers
-      let activeUser = this.authenticationService.getUserData();
-
-      if (activeUser && activeUser.token) {
-        request = request.clone({
-          setHeaders: {
-            Authorization: activeUser.token
-          }
-        });
-      }
-
-      return next.handle(request);
-    }
-  }
-  ```
   
 - The app is a **PWA - fast, reliable, installable and optimised**
 

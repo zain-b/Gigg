@@ -579,7 +579,47 @@ export class AuthenticationService {
   
 - A **messages service** is used by most components and some services to push information about the outcome of user actions to the client. For example, informing the user that they entered the wrong details to login. See:
   
-  - [messages service]
+  - [messages service](client/src/app/services/messages.services.ts)
+  
+  Usage
+  
+```Javascript
+...code omitted...
+
+import {ConnectivityService} from "../services/connectivity.service";
+import {MessagesService} from "../services/messages.service";
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+
+  user = new User();
+  loading = false;
+  connected: Observable<Boolean>;
+
+  constructor(...code omitted...
+              private authenticationService: AuthenticationService,
+              private messagesService: MessagesService) {
+  }
+
+  onSubmit() {
+    this.loading = true;
+    this.authenticationService.login(this.user.email, this.user.password)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.messagesService.sendMessage({success: true, text: "Hello again, " + data.user.username + "!"});
+          this.router.navigate(['/']);
+        },
+        error => {
+          this.messagesService.sendMessage({success: false, text: error.error.message});
+        });
+  }
+}
+```
   
   ![](report-images/messages-service.gif)
 

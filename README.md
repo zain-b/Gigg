@@ -494,6 +494,52 @@ export class DataService {
 
 ![](report-images/console-init.png)
 
+- An **authentication service** manages all client side aspects of user state (authenticated, logged out etc). Upon successful authentication, the server sends back a `User` object that contains an encrypted token indentifying the user. The object is stored in local storage to keep the user logged in. If the user is logged in, all requests should include the token in the `Authorization` HTTP header. See:
+
+[authentication service](client/src/app/services/authentication.service.ts)
+
+```Javascript
+export class AuthenticationService {
+
+  private user$: BehaviorSubject<User>;
+
+  constructor(private http: HttpClient,
+              private router: Router,
+              private messagesService: MessagesService) {
+    this.user$ = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+  }
+
+  getUser() : Observable<User> {
+    return this.user$.asObservable();
+  }
+
+  getUserData() : User {
+    return this.user$.value;
+  }
+  
+  ...code omitted...
+
+  login(email: string, password: string) {
+    return this.http.post<any>('/api/users/login', { email, password })
+      .pipe(map(data => {
+        // login successful if there's a jwt token in the response
+        if (data.user && data.user.token) {
+ 
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('user', JSON.stringify(data.user));
+          this.user$.next(data.user);
+        }
+
+        return data;
+      }));
+  }
+  
+  ...code omitted...
+}
+```
+
+![](report-images/user-local-storage.png)
+
 - The app is completely **functional offline** other than POST requests.
 
 - When user goes offline, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.

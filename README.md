@@ -281,7 +281,7 @@ export class ConnectivityService {
   - [socket service](client/src/app/services/socket.service.ts).
   
 ```Javascript
-  export class SocketService {
+export class SocketService {
 
   private syncing$: BehaviorSubject<Boolean> = new BehaviorSubject<Boolean>(false);
   private connections$: BehaviorSubject<Number> = new BehaviorSubject<Number>(0);

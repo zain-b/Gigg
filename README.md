@@ -369,13 +369,16 @@ export class SocketService {
 
   The cool thing about it is that it allows for **directly storing typescript classes** without any extra code and figures out primary-keys and relations itself. Since the socket service sends us data that is already deserialised into our expected typescript model classes. It is simply a matter of adding them to the database as class objects.
   
-  The resulting code to store and retrieve data from becomes simple, short and intuitive. See:
+  The data service owns two behaviour subjects `events$` and `stories$`. Every time we update the local database with new objects from the socket service, we push the updated data into the behaviour subjects. Observables are derived from the two behaviour subjects which other components and services such as the **events service**, **stories service** and **search service** subscribe to. For example, the events service calls the `getEvents()` method in the data service and subscribes to the returned Observable. This enables the UI to automatically update seamlessly.
+  
+  The resulting code to store data, retrieve data and refresh the UI from becomes simple, short and intuitive. See:
 
   - [data service](client/src/app/services/data.service.ts)
   - [typescript event model](client/src/app/models/event.model.ts)
   - [typescript story model](client/src/app/models/story.model.ts)
   
 ```Javascript
+
 class GiggDatabase extends Dexie {
   events: Dexie.Table<Event,number>;
 
@@ -388,9 +391,6 @@ class GiggDatabase extends Dexie {
   }
 }
 
-@Injectable({
-  providedIn: 'root'
-})
 export class DataService {
 
   private events$: BehaviorSubject<Event[]> = new BehaviorSubject<Event[]>([]);

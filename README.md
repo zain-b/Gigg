@@ -26,11 +26,12 @@ My approach to this report is to outline the main features/achievements of the p
 - Batch/shell scripts provided to automatically install, build and run the app in 2 clicks.
 
 ### Server-side
-- [Stateless express server RESTful API](server/api) (no sessions) whilst also supporting **secure user authentication and authorization** using JSON Web Tokens (JWT) to encrypt user information. See 
+- [Stateless express server RESTful API](server/api) (no sessions) whilst also supporting **secure user authentication and authorization** using JSON Web Tokens (JWT) that encrypt user information with a secret key stored on the server. See 
 
   - [passport strategy](server/config/passport.js)
   - [user model hooks and methods to generate token](server/api/users/users.model.js)
   - [user controller](server/api/users/users.controller.js)
+  - [encryption secret](server/config/properties.js)
 ---
 
   ```Javascript

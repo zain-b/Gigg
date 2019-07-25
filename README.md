@@ -154,7 +154,9 @@ User.pre('save', function (next) {
  ```
 - When retrieving data from MongoDB object references are resolved/populated before sending to client. 
 
-  For example, when retrieving a particular event, the ID of the user that created the event and an array of story id's belonging to the event are also returned. However want to send the actual user object and story objects themselves, not just ID'S.
+  For example, when retrieving a particular event, the ID of the user that created the event and an array of story id's belonging to the event are also returned. However we want to send the actual user object and story objects themselves, not just ID'S. See:
+  
+  - [events controller](server/api/events/events.controller.js) func::show()
 
 ```Javascript
 show: function(req, res) {

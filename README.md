@@ -488,6 +488,8 @@ export class DataService {
   }  
 ```
 
+![](report-images/indexeddb.png)
+
 - The connectivity service, socket service and data service work together to achieve seamless data syncing and a reactive UI.
 
 ![](report-images/console-init.png)

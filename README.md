@@ -193,23 +193,19 @@ show: function(req, res) {
 
   - [mongo dummy data seed](server/config/dummy-data.js)
 
-- Server side socket.io implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. An express middleware function adds the socket.io object to every response, allowing controllers to access the socket and emit events.
+- Server side socket.io implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. This is convenient as whenever a user goes offline and reconnects, they are sent the most up to date data. An express middleware function also adds the socket.io object to every response, allowing controllers to access the socket and emit events.
 
+  When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
+  
+  - [server socket](server/socket/data.socket.js)
+  - [express middleware to add socket.io to response object](server/app.js)
+  - [emitting new events](server/api/events/events.controller.js) (see func::create)
+  - [emitting new stories](server/api/stories/stories.controller.js) (see func::create)
+  
+  
 ```Javascript
 io.on('connection', function(socket){
   io.emit('connections', ++connections);
-
-  let getEvents = eventsModel.find()
-	  .populate('creator', '-password')
-	  .populate({path: 'stories', populate: {path: 'creator', select: '_id username photo'}})
-	  .sort('-createdAt')
-	  .exec();
-
-  let getStories = storiesModel.find()
-	  .populate('creator', '-password')
-	  .populate('event', '_id title')
-	  .sort('-createdAt')
-	  .exec();
 
   getEvents.then(events => {
 	  getStories.then(stories => {
@@ -225,13 +221,6 @@ io.on('connection', function(socket){
 });
 ```
 
-  When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
-  
-  - [server socket](server/socket/data.socket.js)
-  - [express middleware to add socket.io to response object](server/app.js)
-  - [emitting new events](server/api/events/events.controller.js) (see func::create)
-  - [emitting new stories](server/api/stories/stories.controller.js) (see func::create)
-  
 - HTTPS secured.
 
 To save time I skipped some features with very similar or trivial logic, e.g. deleting events/stories, adding comments, updating already posted things.

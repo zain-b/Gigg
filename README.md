@@ -160,32 +160,32 @@ User.pre('save', function (next) {
   - [events controller](server/api/events/events.controller.js) func::show()
 
 ```Javascript
-show: function(req, res) {
-	var id = req.params.id;
+show: function (req, res) {
+var id = req.params.id;
 
-	/**
-	 * The event model will return 'creator' as the ID of the user as JSON in the response. However,
-	 * We want it to return the user as an object so we can access username etc. The 'populate'
-	 * function will resolve the user based on the creator id and add it to the JSON response.
-	 *
-	 * Don't send back password!
-	 */
-	eventsModel.findOne({_id: id})
-		.populate('creator', '-password')
-		.populate({path: 'stories', populate: {path: 'creator', select: '_id username photo'}})
-		.exec(function(err, event) {
-		if(err) {
-			return res.status(500).json({
-				message: 'Error getting event.'
-			});
-		}
-		if(!event) {
-			return res.status(404).json({
-				message: 'No such event'
-			});
-		}
-		return res.json(event);
-	});
+/**
+ * The event model will return 'creator' as the ID of the user as JSON in the response. However,
+ * We want it to return the user as an object so we can access username etc. The 'populate'
+ * function will resolve the user based on the creator id and add it to the JSON response.
+ *
+ * Don't send back password!
+ */
+eventsModel.findOne({_id: id})
+  .populate('creator', '-password')
+  .populate({path: 'stories', populate: {path: 'creator', select: '_id username photo'}})
+  .exec(function (err, event) {
+	if (err) {
+	  return res.status(500).json({
+		message: 'Error getting event.'
+	  });
+	}
+	if (!event) {
+	  return res.status(404).json({
+		message: 'No such event'
+	  });
+	}
+	return res.json(event);
+  });
 }
 ```
 
@@ -216,7 +216,6 @@ io.on('connection', function (socket) {
   });
 
   socket.on('disconnect', function () {
-    console.log('User disconnected.');
     io.emit('connections', --connections);
   });
 });

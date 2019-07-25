@@ -152,6 +152,39 @@ User.pre('save', function (next) {
  });
 
  ```
+- When retrieving data from MongoDB object references are resolved/populated before sending to client. 
+
+  For example, when retrieving a particular event, the ID of the user that created the event and an array of story id's belonging to the event are also returned. However want to send the actual user object and story objects themselves, not just ID'S.
+
+```Javascript
+show: function(req, res) {
+	var id = req.params.id;
+
+	/**
+	 * The event model will return 'creator' as the ID of the user as JSON in the response. However,
+	 * We want it to return the user as an object so we can access username etc. The 'populate'
+	 * function will resolve the user based on the creator id and add it to the JSON response.
+	 *
+	 * Don't send back password!
+	 */
+	eventsModel.findOne({_id: id})
+		.populate('creator', '-password')
+		.populate({path: 'stories', populate: {path: 'creator', select: '_id username photo'}})
+		.exec(function(err, event) {
+		if(err) {
+			return res.status(500).json({
+				message: 'Error getting event.'
+			});
+		}
+		if(!event) {
+			return res.status(404).json({
+				message: 'No such event'
+			});
+		}
+		return res.json(event);
+	});
+}
+```
 
 - When running the server the database is wiped, dummy data is added to the database automatically just before running it. See:
 

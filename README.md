@@ -365,13 +365,11 @@ export class SocketService {
 }
 ```
 
-- Data is always stored locally and all GET requests use local data via a service. The data service relies on being sent data from the **socket service** and interfaces with a local NoSQL database store **IndexedDB** that ships with all major browsers. The service uses [Dexie](https://dexie.org/docs/Typescript) which is a TypeScript wrapper for IndexedDB.
+- Data is always stored locally and all GET requests use local data via the **data service**. The data service relies on being sent data from the **socket service** and interfaces with a local NoSQL database store **IndexedDB** that ships with all major browsers. The service uses [Dexie](https://dexie.org/docs/Typescript) which is a TypeScript wrapper for IndexedDB.
 
   The cool thing about it is that it allows for **directly storing typescript classes** without any extra code and figures out primary-keys and relations itself. Since the socket service sends us data that is already deserialised into our expected typescript model classes. It is simply a matter of adding them to the database as class objects.
   
-  The resulting code to store and retrieve data from becomes simple, short and intuitive.
-
-See:
+  The resulting code to store and retrieve data from becomes simple, short and intuitive. See:
 
   - [data service](client/src/app/services/data.service.ts).
   - [typescript event model](client/src/app/models/event.model.ts)

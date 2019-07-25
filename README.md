@@ -204,19 +204,20 @@ show: function(req, res) {
   
   
 ```Javascript
-io.on('connection', function(socket){
+io.on('connection', function (socket) {
+  console.log("A user connected!");
   io.emit('connections', ++connections);
 
   getEvents.then(events => {
-	  getStories.then(stories => {
-		  let data = {events: events, stories: stories};
-		  socket.emit('complete-data', data);
-	  })
+    getStories.then(stories => {
+      let data = {events: events, stories: stories};
+      socket.emit('complete-data', data);
+    })
   });
 
-  socket.on('disconnect', function(){
-	  console.log('User disconnected.');
-	  io.emit('connections', --connections);
+  socket.on('disconnect', function () {
+    console.log('User disconnected.');
+    io.emit('connections', --connections);
   });
 });
 ```

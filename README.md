@@ -193,7 +193,37 @@ show: function(req, res) {
 
   - [mongo dummy data seed](server/config/dummy-data.js)
 
-- Server side socket.io implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. An express middleware function adds the socket.io object to every response, allowing controllers to access the socket and emit events. 
+- Server side socket.io implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. An express middleware function adds the socket.io object to every response, allowing controllers to access the socket and emit events.
+
+```Javascript
+io.on('connection', function(socket){
+  io.emit('connections', ++connections);
+
+  let getEvents = eventsModel.find()
+	  .populate('creator', '-password')
+	  .populate({path: 'stories', populate: {path: 'creator', select: '_id username photo'}})
+	  .sort('-createdAt')
+	  .exec();
+
+  let getStories = storiesModel.find()
+	  .populate('creator', '-password')
+	  .populate('event', '_id title')
+	  .sort('-createdAt')
+	  .exec();
+
+  getEvents.then(events => {
+	  getStories.then(stories => {
+		  let data = {events: events, stories: stories};
+		  socket.emit('complete-data', data);
+	  })
+  });
+
+  socket.on('disconnect', function(){
+	  console.log('User disconnected.');
+	  io.emit('connections', --connections);
+  });
+});
+```
 
   When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
   

@@ -237,7 +237,7 @@ To save time I skipped some features with very similar or trivial logic, e.g. de
 
   - [gigg service worker](client/src/gigg-service-worker.js)
   
-- User connectivity status managed by a service. **BehaviourSubjects** are used to push new data to subscribed components. Components subscribe to the the **Observable** derived from the Subject and are continously notified of any changes. See:
+- User connectivity status managed by a **connectivity service**. **BehaviourSubjects** are used to push new data to subscribed components. Components subscribe to the the **Observable** derived from the Subject and are continously notified of any changes. See:
 
   - [connectivity service](client/src/app/services/connectivity.service.ts)
 
@@ -272,9 +272,80 @@ export class ConnectivityService {
 }
 ```
 
-- Client side **Socket.io implementation** to continuously stay in sync with the server via a service. The socket listens for the `complete-data` event, the `new-event` event and the `new story` event. The received data is sent to the data service for processing. See:
+- Client side **Socket.io implementation** to continuously stay in sync with the server via a **socket service**. The socket listens for the `complete-data` message, the `new-event` message and the `new-story` message. The received data is sent to the data service for processing.
+  
+  The socket service subscribes to the connectivity service's `connection$` observable in order to disconnect itself whenever the client goes offline. It reconnects itself when the client comes back online. This is required due to a quirk in how offline mode works in some browsers (they do not seem to disconnect sockets), which makes it difficult to test otherwise.
+  
+  Whenever a message is receieved the `sync$` behaviour subject is updated to tell subscribed components that we are currently syncing, once the data service is done processing the recieved data, we set the sync status to false again. The `connections` event is also listened for (total number of clients currently connected to server) which is pushed to a `connections$` behaviour subject. Any subscribed components will recieve the number of clients connected in real-time.
+  
+  See:
 
   - [socket service](client/src/app/services/socket.service.ts).
+  
+```Javascript
+  export class SocketService {
+
+  private syncing$: BehaviorSubject<Boolean> = new BehaviorSubject<Boolean>(false);
+  private connections$: BehaviorSubject<Number> = new BehaviorSubject<Number>(0);
+
+  socket;
+
+  constructor(private dataService: DataService,
+              private connectivityService: ConnectivityService) {}
+
+  init() {
+    this.socket = io(Properties.SOCKET_IO_URL);
+
+    this.socket.on('complete-data', async (data: {events: Event[], stories: Story[]}) => {
+      this.syncing$.next(true);
+      await this.dataService.processCompleteData(data);
+      this.syncing$.next(false);
+    });
+
+    this.socket.on('new-event', async (data: Event) => {
+      this.syncing$.next(true);
+      await this.dataService.processNewEvent(data);
+      this.syncing$.next(false);
+    });
+
+    this.socket.on('new-story', async (data: Story) => {
+      this.syncing$.next(true);
+      await this.dataService.processNewStory(data);
+      this.syncing$.next(false);
+    });
+
+    this.socket.on('connections', connections => {
+      this.connections$.next(connections);
+    });
+
+    /**
+     * Add event listeners to listen for online/offline event to manually establish/disconnect a socket connection.
+     * This is needed because of the behaviour of some browsers when 'offline' mode is selected in development tools.
+     *
+     * Most browsers will not simulate offline mode for web sockets so we disconnect and connect them manually.
+     * @param event
+     */
+    this.connectivityService.connected().subscribe(online => {
+      if (online) {
+        console.log(this.serviceName + "Back online! Establishing socket connection.");
+        this.socket.connect();
+      } else {
+        console.log(this.serviceName + "Offline! Disconnecting socket connection.");
+        this.socket.disconnect();
+      }
+    });
+
+  }
+
+  getSyncStatus(): Observable<Boolean> {
+    return this.syncing$.asObservable();
+  }
+
+  getConnections(): Observable<Number> {
+    return this.connections$.asObservable();
+  }
+}
+```
 
 - Data is stored locally in **IndexedDB** and all GET requests use local data via a service. See:
 

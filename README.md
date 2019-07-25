@@ -24,6 +24,10 @@ The only third party libraries used are:
 
 My approach to this report is to outline the main features/achievements of the project whilst also documenting how they have been achieved. Links to relevant code files are provided throughout the README. Code snippets are also provided where appropriate.
 
+> **Note**: Due to time-contraints there are some areas of the app that are not as optimal as they could be. I also skipped some features with trivial logic or very similar logic to other features already implemented (e.g. updating already posted things, deleting posts, pagination etc). This is to give more time to work on a wider range of the objectives of the assignment.
+>
+> Also as a result of time-constraints, the code is also missing comments. However, this documentation/report is intended to explain most aspects of the application. The commenting/documentation of the code directly would likely be a repeat of this documentation. 
+
 ---
 ### Gigg in action
 

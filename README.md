@@ -3,7 +3,7 @@
 This project, **Gigg** is my submission for the COM3504 The Intelligent Web (SPRING 2018~19) assignment. The application is an installable [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built with MongoDB, Angular 8, ExpressJS and NodeJS. 
 
 - Stateless server API
-- Fully functional offline (can also be closed and opened).
+- Fully functional offline (including offline full-text search, search by map, can also be closed and opened).
 - Client and server automatically synced
 - Single page client
 - Service worker caching
@@ -155,7 +155,7 @@ User.pre('save', function (next) {
 ![](report-images/create-story.gif)
 
 ---
-- Search via API (the client will use an API search for text fields if online, otherwise it will use its own offline search). See
+- Search via API (the client will use an API search for text fields if online, otherwise it will use its own offline search client-side). See
 
   - [search api](server/api/search/search.controller.js)
 
@@ -698,6 +698,9 @@ export class LoginComponent implements OnInit {
 ```
 
 ![](report-images/search-by-area.gif)
+
+
+- **Offline full-text search** with multiple fields and date range filtering. E.g. you can search `foo` and `i like foobar` will be found. You can search by event title, location and date range all together and the best matching results will be returned. All fields are optional.
   
 - The app is a **PWA - fast, reliable, installable and optimised**
 

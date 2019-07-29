@@ -3,6 +3,7 @@ import {Event} from "../models/event.model";
 import {Story} from "../models/story.model";
 import {BehaviorSubject, Observable} from "rxjs";
 import Dexie from 'dexie';
+import {Search} from "../models/search.model";
 
 class GiggDatabase extends Dexie {
   events: Dexie.Table<Event,number>;
@@ -10,7 +11,7 @@ class GiggDatabase extends Dexie {
   constructor() {
     super("GiggDatabase");
     this.version(1).stores({
-      events: "_id,title,date,photo,createdAt,location,creator,stories",
+      events: "_id,title,date,location.address,location.x,location.y,photo,createdAt,creator,stories,*searchIndex",
       stories: "_id,tldr,text,createdAt,photos,event,creator"
     });
   }
@@ -33,6 +34,7 @@ export class DataService {
   init() {
     console.log(this.serviceName + "Initialising Gigg Database");
     this.db = new GiggDatabase();
+    this.indexEventTitleAndLocation();
   }
 
   getEvent(id: string) {
@@ -138,4 +140,68 @@ export class DataService {
     this.stories$.next(stories.reverse());
   }
 
+  /**
+   * Generic search function with multiple fields. If title or location is searched by we search the
+   * 'searchIndex' we created on each record of the events table. If the date is also provided, we filter
+   * these results.
+   *
+   * If neither title or location is provided, we filter all records in the events table by the date.
+   * @param searchData
+   */
+  async searchEvents(searchData: Search): Promise<Event[]> {
+    let results;
+
+    if (searchData.text || searchData.location) {
+      let text = searchData.text ? searchData.text.split(' ') : [];
+      let location = searchData.location ? searchData.location.split(' ') : [];
+      let words = text.concat(location);
+      results = this.db.events.where('searchIndex').startsWithAnyOfIgnoreCase(words);
+    } else {
+      results = this.db.events;
+    }
+    
+    if (!searchData.date) {
+      return results.toArray();
+    }
+
+    // Filter results by date if provided. If no text or location search, then filter all events by date range.
+    var providedDate = new Date(searchData.date);
+
+    let dateBottom = new Date();
+    let dateTop = new Date();
+
+    dateBottom.setDate(providedDate.getDate() - 5);
+    dateTop.setDate(providedDate.getDate() + 5);
+
+    return results.filter(function (event) {
+      let eventDate = new Date(event.date);
+      return eventDate >= dateBottom && eventDate <= dateTop;
+    }).toArray();
+  }
+
+  indexEventTitleAndLocation() {
+    // Add hooks that will index event title and location together for full-text search:
+    this.db.events.hook("creating", (primKey, event, trans) => {
+      let titleLocationCity = (event.title + " " + event.location.address + " " + event.location.city).toLowerCase();
+      let cleanText = this.removePunctuation(titleLocationCity);
+      event.searchIndex = this.getUniqueWordsAsArray(cleanText);
+    });
+  }
+
+  getUniqueWordsAsArray(text) {
+    var words = text.split(' ');
+    var uniqueWords = words.reduce(function (prev, current) {
+      prev[current] = true;
+      return prev;
+    }, {});
+    return Object.keys(uniqueWords);
+  }
+
+  /**
+   * Removes punctuation and turns multiple spaces into one.
+   * @param str
+   */
+  removePunctuation(str) {
+    return str.trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ");
+  }
 }

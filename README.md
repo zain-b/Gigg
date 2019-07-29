@@ -634,38 +634,6 @@ export class LoginComponent implements OnInit {
 
 - The app is completely **functional offline** other than POST requests.
 
-- When user goes offline or is logged out, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
-
-```html
-<form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
-    <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
-        
-        <!--- form code omitted for brevity --->
-        
-        <button type="submit" [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Add story
-        </button>
-    </fieldset>
-</form>
-```
-
-![](report-images/disabled-forms.gif)
-
-- At the point of going offline the **user always has the most up to date data.**
-
-- As soon as user is back online, data is synced with the server.
-
-- Any changes on the server, e.g. new event posted, new story posted automatically show up on client UI without any page refresh.
-
-- Client UI always informs user of application status e.g. offline, online, up to date, syncing, how many clients are connected etc.
-
-- The app can be manually F5 refreshed or closed and reopened whilst offline remaining fully functional (awkward to achieve with Angular as all components have data wiped).
-
-- The app is a **Single Page App (SPA)** in its entirety with everything updating without any page refresh. This is achieved by making components subscribe to RxJS (reactive javascript) **Observables** and **BehaviourSubjects**.
-
-- **LeafletJS** for location selection, viewing already selected locations e.g. for events and searching.
-
 - Search events by map bounds or **search this area**. Results are added as markers with pop-ups to the map and also show up on the UI after being fed to the event-list component. Also works **offline**.
 
   When the search by area button is pressed, the events service retrieves all events from the data service (locally) and checks if their latitude and longitude are within the bounds of the map. All events that satisfy this are added to the map and the search component's event list is updated (triggering a UI update). See:
@@ -699,8 +667,41 @@ export class LoginComponent implements OnInit {
 
 ![](report-images/search-by-area.gif)
 
-
 - **Offline full-text search** with multiple fields and date range filtering. E.g. you can search `foo` and `i like foobar` will be found. You can search by event title, location and date range all together and the best matching results will be returned. All fields are optional.
+  
+  ![](report-images/offline-search.gif)
+
+- When user goes offline or is logged out, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
+
+```html
+<form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
+    <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
+        
+        <!--- form code omitted for brevity --->
+        
+        <button type="submit" [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Add story
+        </button>
+    </fieldset>
+</form>
+```
+
+![](report-images/disabled-forms.gif)
+
+- At the point of going offline the **user always has the most up to date data.**
+
+- As soon as user is back online, data is synced with the server.
+
+- Any changes on the server, e.g. new event posted, new story posted automatically show up on client UI without any page refresh.
+
+- Client UI always informs user of application status e.g. offline, online, up to date, syncing, how many clients are connected etc.
+
+- The app can be manually F5 refreshed or closed and reopened whilst offline remaining fully functional (awkward to achieve with Angular as all components have data wiped).
+
+- The app is a **Single Page App (SPA)** in its entirety with everything updating without any page refresh. This is achieved by making components subscribe to RxJS (reactive javascript) **Observables** and **BehaviourSubjects**.
+
+- **LeafletJS** for location selection, viewing already selected locations e.g. for events and searching.
   
 - The app is a **PWA - fast, reliable, installable and optimised**
 

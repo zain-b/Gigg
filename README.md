@@ -403,7 +403,7 @@ export class SocketService {
   
   The resulting code to store data, retrieve data and refresh the UI from becomes simple, short and intuitive. **Note**: the below code can definitely be optimised (not done due to time constraints) e.g. instead of clearing the whole db, check what needs to be updated and update those only. Also instead of querying and pushing the whole array to the behaviour subjects, only push those that have actually changed.
   
-  **Edit**: The code for storing multiple objects (e.g. when adding all stories/events received) to indexeddb needs to be updated so that it occurs in a single transaction. Currently (unintended) a transaction will be opened for every single object added. Simply wrap the code in `db.transaction('rw' func)` 
+  **Edit**: The code for storing multiple objects (e.g. when adding all stories/events received) to indexeddb needs to be updated so that it occurs in a single transaction. Currently (unintended) a transaction will be opened for every single object added. Simply wrap the code in `db.transaction('rw', func)` 
   
   See:
 
@@ -419,7 +419,7 @@ class GiggDatabase extends Dexie {
   constructor() {
     super("GiggDatabase");
     this.version(1).stores({
-      events: "_id,title,date,photo,createdAt,location,creator,stories",
+      events: "_id,title,date,location.address,location.x,location.y,photo,createdAt,creator,stories,*searchIndex",
       stories: "_id,tldr,text,createdAt,photos,event,creator"
     });
   }
@@ -495,7 +495,9 @@ export class DataService {
   async updateStories() {
     const stories = await this.db.stories.toArray();
     this.stories$.next(stories);
-  }  
+  }
+  
+  ...offline search code omitted...
 ```
 
 ![](report-images/indexeddb.png)

@@ -672,8 +672,59 @@ export class LoginComponent implements OnInit {
 ![](report-images/search-by-area.gif)
 
 - **Offline full-text search** with multiple fields and date range filtering. E.g. you can search `foo` and `i like foobar` will be found. You can search by event title, location and date range all together and the best matching results will be returned. All fields are optional.
+
+  The search function is generic with multiple fields. The event title and address are indexed together so it becomes simple to search for both criteria at once. We can then filter by date range if a date is provided. We check to see if either the title or location is provided as input to the search, if so we search the index that is shared between them. If not we get all results and filter by date if it's provided. If no search criteria is provided, we just return all results (maybe do the opposite?). See:
   
+  - [data service](client/src/app/services/data.service.ts)
+
+```Javascript
+  async searchEvents(searchData: Search): Promise<Event[]> {
+    let results;
+
+    if (searchData.text || searchData.location) {
+      let text = searchData.text ? searchData.text.split(' ') : [];
+      let location = searchData.location ? searchData.location.split(' ') : [];
+      let words = text.concat(location);
+      results = this.db.events.where('searchIndex').startsWithAnyOfIgnoreCase(words);
+    } else {
+      results = this.db.events;
+    }
+
+    if (!searchData.date) {
+      return results.toArray();
+    }
+
+    // Filter results by date if provided. If no text or location search, then filter all events by date range.
+    var providedDate = new Date(searchData.date);
+
+    let dateBottom = new Date();
+    let dateTop = new Date();
+
+    dateBottom.setDate(providedDate.getDate() - 5);
+    dateTop.setDate(providedDate.getDate() + 5);
+
+    return results.filter(function (event) {
+      let eventDate = new Date(event.date);
+      return eventDate >= dateBottom && eventDate <= dateTop;
+    }).toArray();
+  }
+```
+
   ![](report-images/offline-search.gif)
+  
+  We manually create the and update the index `searchIndex` for the event title and address using a dexie **hook** that triggers just before an object is saved to the database. We then take the search input, split it into an array of `words` and execute a query with the `db.events.where('searchIndex').startsWithAnyOfIgnoreCase(words)` operation to achieve full-text search. To manually update the index every time an event is added: 
+  
+  ```Javascript
+    indexEventTitleAndLocation() {
+    // Add hooks that will index event title and location together for full-text search:
+    this.db.events.hook("creating", (primKey, event, trans) => {
+      let titleLocationCity = (event.title + " " + event.location.address + " " + event.location.city).toLowerCase();
+      let cleanText = this.removePunctuation(titleLocationCity);
+      event.searchIndex = this.getUniqueWordsAsArray(cleanText);
+    });
+  }
+  ```
+  ![](report-images/search-index.png)
 
 - When user goes offline or is logged out, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
 

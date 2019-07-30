@@ -403,6 +403,8 @@ export class SocketService {
   
   The resulting code to store data, retrieve data and refresh the UI from becomes simple, short and intuitive. **Note**: the below code can definitely be optimised (not done due to time constraints) e.g. instead of clearing the whole db, check what needs to be updated and update those only. Also instead of querying and pushing the whole array to the behaviour subjects, only push those that have actually changed.
   
+  **Edit**: The code for storing multiple objects (e.g. when adding all stories/events received) to indexeddb needs to be updated so that it occurs in a single transaction. Currently (unintended) a transaction will be opened for every single object added. Simply wrap the code in `db.transaction('rw' func)` 
+  
   See:
 
   - [data service](client/src/app/services/data.service.ts)

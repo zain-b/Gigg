@@ -3,7 +3,7 @@
 This project, **Gigg** is my submission for the COM3504 The Intelligent Web (SPRING 2018~19) assignment. The application is an installable [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built with MongoDB, Angular 8, ExpressJS and NodeJS. 
 
 - Stateless server API
-- Fully functional offline (can also be closed and opened).
+- Fully functional offline (including offline full-text search, search by map, can also be closed and opened).
 - Client and server automatically synced
 - Single page client
 - Service worker caching
@@ -23,6 +23,12 @@ The only third party libraries used are:
 - socket.io (Web sockets)
 
 My approach to this report is to outline the main features/achievements of the project whilst also documenting how they have been achieved. Links to relevant code files are provided throughout the README. Code snippets are also provided where appropriate.
+
+Want to skip the documentation and go straight to [installing & running the app](#install--run)?
+
+**Note**: Due to time-contraints there are some areas of the app that are not as optimal as they could be. I also skipped some features with trivial logic or very similar logic to other features already implemented (e.g. updating already posted things, deleting posts, pagination etc). This is to give more time to work on a wider range of the objectives of the assignment.
+
+Also as a result of time-constraints, the code is also missing comments. However, this documentation/report is intended to explain most aspects of the application. The commenting/documentation of the code directly would likely be a repeat of this documentation. 
 
 ---
 ### Gigg in action
@@ -149,7 +155,7 @@ User.pre('save', function (next) {
 ![](report-images/create-story.gif)
 
 ---
-- Search via API (the client will use an API search for text fields if online, otherwise it will use its own offline search). See
+- Search via API (the client will use an API search for text fields if online, otherwise it will use its own offline search client-side). See
 
   - [search api](server/api/search/search.controller.js)
 
@@ -216,7 +222,7 @@ User.pre('save', function (next) {
 
 - Server side **socket.io** implementation. Upon client connection, the server socket emits a message `complete-data` containing all events and stories in JSON format. This is convenient as whenever a user goes offline and reconnects, they are sent the most up to date data. An express middleware function also adds the socket.io object to every response, allowing controllers to access the socket and emit events.
 
-  When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new story` containing the data that has been created. See:
+  When a new event/story is created the controllers access the server socket through the response object and emit messages `new-event` or `new-story` containing the data that has been created. See:
   
   - [server socket](server/socket/data.socket.js)
   - [express middleware to add socket.io to response object](server/app.js)
@@ -395,7 +401,11 @@ export class SocketService {
   
   The data service owns two behaviour subjects `events$` and `stories$`. Every time we update the local database with new objects from the socket service, we push the updated data into the behaviour subjects. Observables are derived from the two behaviour subjects which other components and services such as the **events service**, **stories service** and **search service** subscribe to. For example, the events service calls the `getEvents()` method in the data service and subscribes to the returned Observable. This enables the UI to automatically update seamlessly.
   
-  The resulting code to store data, retrieve data and refresh the UI from becomes simple, short and intuitive. See:
+  The resulting code to store data, retrieve data and refresh the UI from becomes simple, short and intuitive. **Note**: the below code can definitely be optimised (not done due to time constraints) e.g. instead of clearing the whole db, check what needs to be updated and update those only. Also instead of querying and pushing the whole array to the behaviour subjects, only push those that have actually changed.
+  
+  **Edit**: The code for storing multiple objects (e.g. when adding all stories/events received) to indexeddb needs to be updated so that it occurs in a single transaction. Currently (unintended) a transaction will be opened for every single object added. Simply wrap the code in `db.transaction('rw', func)` 
+  
+  See:
 
   - [data service](client/src/app/services/data.service.ts)
   - [typescript event model](client/src/app/models/event.model.ts)
@@ -409,7 +419,7 @@ class GiggDatabase extends Dexie {
   constructor() {
     super("GiggDatabase");
     this.version(1).stores({
-      events: "_id,title,date,photo,createdAt,location,creator,stories",
+      events: "_id,title,date,location.address,location.x,location.y,photo,createdAt,creator,stories,*searchIndex",
       stories: "_id,tldr,text,createdAt,photos,event,creator"
     });
   }
@@ -485,7 +495,9 @@ export class DataService {
   async updateStories() {
     const stories = await this.db.stories.toArray();
     this.stories$.next(stories);
-  }  
+  }
+  
+  ...offline search code omitted...
 ```
 
 ![](report-images/indexeddb.png)
@@ -577,45 +589,54 @@ export class AuthenticationService {
   }
   ```
   
-- A **messages service** is used by most components and some services to push information about the outcome of user actions to the client. For example, informing the user that they entered the wrong details to login. See:
+- A **messages service** is used by most components and some services to push information about the outcome of user actions to the client. For example, informing the user that they entered the wrong details to login. 
+
+  The service owns a `messages$` behaviour subject and exposes the derived **observable** which the root `app.component.ts` subscribes to. See snippets below for usage. See:
   
-  - [messages service]
+  - [messages service](client/src/app/services/messages.service.ts)
+  - [app component](client/src/app/app.component.ts)
   
+```Javascript
+...code omitted throughout snippet...
+
+import {MessagesService} from "../services/messages.service";
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+})
+export class LoginComponent implements OnInit {
+
+  user = new User();
+  
+  constructor(private authenticationService: AuthenticationService,
+              private messagesService: MessagesService) {}
+
+  onSubmit() {
+    this.authenticationService.login(this.user.email, this.user.password)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.messagesService.sendMessage({success: true, text: "Hello again, " + data.user.username + "!"});
+          this.router.navigate(['/']);
+        },
+        error => {
+          this.messagesService.sendMessage({success: false, text: error.error.message});
+        });
+  }
+}
+```
+
+```HTML
+  <div *ngIf="(messages$ | async).show" class="messages" [ngClass]="(messages$ | async).success ? 'success' : 'error'" [@fadeInOut]>
+    <ng-container *ngIf="(messages$ | async).success then success else error"></ng-container>
+    <ng-template #success>Success&mdash;{{(messages$ | async).text}}</ng-template>
+    <ng-template #error>Error&mdash;{{(messages$ | async).text}}</ng-template>
+  </div>
+```
   ![](report-images/messages-service.gif)
 
 - The app is completely **functional offline** other than POST requests.
-
-- When user goes offline, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
-
-```html
-<form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
-    <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
-        
-        <!--- form code omitted for brevity --->
-        
-        <button type="submit" [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Add story
-        </button>
-    </fieldset>
-</form>
-```
-
-![](report-images/disabled-forms.gif)
-
-- At the point of going offline the **user always has the most up to date data.**
-
-- As soon as user is back online, data is synced with the server.
-
-- Any changes on the server, e.g. new event posted, new story posted automatically show up on client UI without any page refresh.
-
-- Client UI always informs user of application status e.g. offline, online, up to date, syncing, how many clients are connected etc.
-
-- The app can be manually F5 refreshed or closed and reopened whilst offline remaining fully functional (awkward to achieve with Angular as all components have data wiped).
-
-- The app is a **Single Page App (SPA)** in its entirety with everything updating without any page refresh. This is achieved by making components subscribe to RxJS (reactive javascript) **Observables** and **BehaviourSubjects**.
-
-- **LeafletJS** for location selection, viewing already selected locations e.g. for events and searching.
 
 - Search events by map bounds or **search this area**. Results are added as markers with pop-ups to the map and also show up on the UI after being fed to the event-list component. Also works **offline**.
 
@@ -649,6 +670,93 @@ export class AuthenticationService {
 ```
 
 ![](report-images/search-by-area.gif)
+
+- **Offline full-text search** with multiple fields and date range filtering. E.g. you can search `foo` and `i like foobar` will be found. You can search by event title, location and date range all together and the best matching results will be returned. All fields are optional.
+
+  The search function is generic with multiple fields. The event title and address are indexed together so it becomes simple to search for both criteria at once. We can then filter by date range if a date is provided. We check to see if either the title or location is provided as input to the search, if so we search the index that is shared between them. If not we get all results and filter by date if it's provided. If no search criteria is provided, we just return all results (maybe do the opposite?). See:
+  
+  - [data service](client/src/app/services/data.service.ts)
+
+```Javascript
+  async searchEvents(searchData: Search): Promise<Event[]> {
+    let results;
+
+    if (searchData.text || searchData.location) {
+      let text = searchData.text ? searchData.text.split(' ') : [];
+      let location = searchData.location ? searchData.location.split(' ') : [];
+      let words = text.concat(location);
+      results = this.db.events.where('searchIndex').startsWithAnyOfIgnoreCase(words);
+    } else {
+      results = this.db.events;
+    }
+
+    if (!searchData.date) {
+      return results.toArray();
+    }
+
+    // Filter results by date if provided. If no text or location search, then filter all events by date range.
+    var providedDate = new Date(searchData.date);
+
+    let dateBottom = new Date();
+    let dateTop = new Date();
+
+    dateBottom.setDate(providedDate.getDate() - 5);
+    dateTop.setDate(providedDate.getDate() + 5);
+
+    return results.filter(function (event) {
+      let eventDate = new Date(event.date);
+      return eventDate >= dateBottom && eventDate <= dateTop;
+    }).toArray();
+  }
+```
+
+  ![](report-images/offline-search.gif)
+  
+  We manually create the and update the index `searchIndex` for the event title and address using a dexie **hook** that triggers just before an object is saved to the database. We then take the search input, split it into an array of `words` and execute a query with the `db.events.where('searchIndex').startsWithAnyOfIgnoreCase(words)` operation to achieve full-text search. To manually update the index every time an event is added: 
+  
+  ```Javascript
+    indexEventTitleAndLocation() {
+    // Add hooks that will index event title and location together for full-text search:
+    this.db.events.hook("creating", (primKey, event, trans) => {
+      let titleLocationCity = (event.title + " " + event.location.address + " " + event.location.city).toLowerCase();
+      let cleanText = this.removePunctuation(titleLocationCity);
+      event.searchIndex = this.getUniqueWordsAsArray(cleanText);
+    });
+  }
+  ```
+  ![](report-images/search-index.png)
+
+- When user goes offline or is logged out, all POST forms are disabled. This is achieved by the component subscribing to the connectivity status through the connectivity service and using **async pipes** in the template to automatically update the UI whenever a change is sent.
+
+```html
+<form #storyCreateForm="ngForm" (ngSubmit)="onSubmit()">
+    <fieldset [disabled]="!(connected$ | async) || !(user$ | async)">
+        
+        <!--- form code omitted for brevity --->
+        
+        <button type="submit" [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Add story
+        </button>
+    </fieldset>
+</form>
+```
+
+![](report-images/disabled-forms.gif)
+
+- At the point of going offline the **user always has the most up to date data.**
+
+- As soon as user is back online, data is synced with the server.
+
+- Any changes on the server, e.g. new event posted, new story posted automatically show up on client UI without any page refresh.
+
+- Client UI always informs user of application status e.g. offline, online, up to date, syncing, how many clients are connected etc.
+
+- The app can be manually F5 refreshed or closed and reopened whilst offline remaining fully functional (awkward to achieve with Angular as all components have data wiped).
+
+- The app is a **Single Page App (SPA)** in its entirety with everything updating without any page refresh. This is achieved by making components subscribe to RxJS (reactive javascript) **Observables** and **BehaviourSubjects**.
+
+- **LeafletJS** for location selection, viewing already selected locations e.g. for events and searching.
   
 - The app is a **PWA - fast, reliable, installable and optimised**
 

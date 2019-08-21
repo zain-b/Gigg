@@ -7,9 +7,10 @@ import {EventsService} from "../../events/events.service";
 import {Event} from "../../models/event.model";
 import {GiggUtils} from "../../helpers/gigg.utils";
 import {Search} from "../../models/search.model";
-import {first} from "rxjs/operators";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {MessagesService} from "../../services/messages.service";
+import {ConnectivityService} from "../../services/connectivity.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-search-page',
@@ -40,6 +41,9 @@ export class SearchPageComponent implements OnInit {
   mapMarkers = [];
   searched = false;
   loading = false;
+  online = false;
+
+  connected: Observable<Boolean>;
 
   mapOptions = {
     layers: [
@@ -53,9 +57,17 @@ export class SearchPageComponent implements OnInit {
 
   constructor(private searchService: SearchService,
               private eventsService: EventsService,
-              private messagesService: MessagesService) { }
+              private connectivityService: ConnectivityService,
+              private messagesService: MessagesService) {
+
+    this.connected = this.connectivityService.connected();
+  }
 
   ngOnInit() {
+    this.connected.subscribe(online => {
+      this.online = online.valueOf();
+    });
+
     this.eventsService.getEvents()
       .subscribe(
         (data: Event[]) => {
@@ -73,8 +85,7 @@ export class SearchPageComponent implements OnInit {
     this.searched = false;
     this.loading = true;
 
-    this.searchService.searchEvents(this.searchData)
-      .pipe(first())
+    this.searchService.searchEvents(this.searchData, this.online)
       .subscribe(
         (events: Event[]) => {
           this.lastSearch = this.searchData;
@@ -87,7 +98,8 @@ export class SearchPageComponent implements OnInit {
         },
         error => {
           this.loading = false;
-          this.messagesService.sendMessage({success: false, text: error.error.message});
+          console.log(error);
+          this.messagesService.sendMessage({success: false, text: 'An error occurred. Check logs.'});
         });
   }
 
@@ -113,7 +125,8 @@ export class SearchPageComponent implements OnInit {
         },
         error => {
           this.loading = false;
-          this.messagesService.sendMessage({success: false, text: error.error.message});
+          console.error(error);
+          this.messagesService.sendMessage({success: false, text: 'An error occurred check logs.'});
         });
   }
 

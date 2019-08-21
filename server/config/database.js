@@ -4,11 +4,15 @@ var properties = require('./properties');
 var mongoDB = properties.database;
 
 module.exports = {
-  connect: function() {
-      mongoose.Promise = global.Promise;
-      mongoose.connect(mongoDB, { useNewUrlParser: true }).then(
-          () => { console.log("Successfully connected to DB.") },
-          err => { console.error.bind(console, 'MongoDB connection error:' + err) }
-      );
+  connect: async function(err) {
+	  mongoose.Promise = global.Promise;
+	  
+	try {
+	  await mongoose.connect(mongoDB, { useNewUrlParser: true });
+	  console.log('\nSuccessfully connected to DB at ' + mongoDB + '\n');
+	} catch (error) {
+	  err(error);
+	}
+
   }
 };

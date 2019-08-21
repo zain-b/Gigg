@@ -51,7 +51,12 @@ app.use(cors());
 /**
  * Connect to database.
  */
-database.connect();
+database.connect(function(error) {
+	console.log('\x1b[41m%s\x1b[0m', '\nMongoDB connection error: ' + error + '\n');
+	console.log('\x1b[33m%s\x1b[0m', 'Shutting down server... unable to connect to db, check port in server/config/properties\n');
+	server.close();
+	process.exit(1);
+});
 
 /**
  * Temporary Bug hotfix, Wait till dummy data is created before initialising socket.

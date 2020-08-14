@@ -1,6 +1,4 @@
-# COM3504 The Intelligent Web (SPRING 2018~19)
-
-This project, **Gigg** is my submission for the COM3504 The Intelligent Web (SPRING 2018~19) assignment. The application is an installable [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built with MongoDB, Angular 8, ExpressJS and NodeJS. 
+The application is an installable [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) built with MongoDB, Angular 8, ExpressJS and NodeJS. 
 
 - Stateless server API
 - Fully functional offline (including offline full-text search, search by map, can also be closed and opened).

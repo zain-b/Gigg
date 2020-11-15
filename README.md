@@ -22,7 +22,7 @@ The only third party libraries used are:
 
 Want to skip the documentation and go straight to [installing & running the app](#install--run)?
 
-**Note**: Due to time-contraints there are some areas of the app that are not as optimal as they could be. I also skipped some features with trivial logic or very similar logic to other features already implemented (e.g. updating already posted things, deleting posts, pagination etc). This is to give more time to work on a wider range of the objectives of the assignment.
+**Note**: Due to time-contraints there are some areas of the app that are not as optimal as they could be. I also skipped some features with trivial logic or very similar logic to other features already implemented (e.g. updating already posted things, deleting posts, pagination etc).
 
 ---
 ### Gigg in action

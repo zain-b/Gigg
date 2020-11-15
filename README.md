@@ -813,5 +813,3 @@ In a browser of your choice navigate to the URL below to open the app.
 ```console
 http://localhost:3001
 ```
-
-**Note**: I've disabled HTTPS whilst working on localhost due to issues with auditing with applications such as Google Lighthouse when evaluating the app.
